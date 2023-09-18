@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/renta_car_ukraine/static/css/main.1f67372d.css",
+    "main.js": "/renta_car_ukraine/static/js/main.c06bf800.js",
+    "index.html": "/renta_car_ukraine/index.html",
+    "main.1f67372d.css.map": "/renta_car_ukraine/static/css/main.1f67372d.css.map",
+    "main.c06bf800.js.map": "/renta_car_ukraine/static/js/main.c06bf800.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f67372d.css",
+    "static/js/main.c06bf800.js"
+  ]
+}
