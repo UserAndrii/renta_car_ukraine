@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/renta_car_ukraine/static/css/main.1f67372d.css",
-    "main.js": "/renta_car_ukraine/static/js/main.c06bf800.js",
+    "main.css": "/renta_car_ukraine/static/css/main.ec353afa.css",
+    "main.js": "/renta_car_ukraine/static/js/main.0a6f2d89.js",
+    "static/media/Manrope-SemiBold.ttf": "/renta_car_ukraine/static/media/Manrope-SemiBold.310f108cc524df0e5ffc.ttf",
+    "static/media/Manrope-Medium.ttf": "/renta_car_ukraine/static/media/Manrope-Medium.08894ccb04665d1a9d53.ttf",
+    "static/media/Manrope-Regular.ttf": "/renta_car_ukraine/static/media/Manrope-Regular.a9b9e09fe6b69741f316.ttf",
+    "static/media/Manrope-Bold.ttf": "/renta_car_ukraine/static/media/Manrope-Bold.47f6d7143da9d8c0e480.ttf",
     "index.html": "/renta_car_ukraine/index.html",
-    "main.1f67372d.css.map": "/renta_car_ukraine/static/css/main.1f67372d.css.map",
-    "main.c06bf800.js.map": "/renta_car_ukraine/static/js/main.c06bf800.js.map"
+    "main.ec353afa.css.map": "/renta_car_ukraine/static/css/main.ec353afa.css.map",
+    "main.0a6f2d89.js.map": "/renta_car_ukraine/static/js/main.0a6f2d89.js.map"
   },
   "entrypoints": [
-    "static/css/main.1f67372d.css",
-    "static/js/main.c06bf800.js"
+    "static/css/main.ec353afa.css",
+    "static/js/main.0a6f2d89.js"
   ]
 }
