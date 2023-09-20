@@ -26,7 +26,7 @@ This web application offers a diverse selection of rental cars to suit every tas
 - **Detailed Information**: Get comprehensive information about a car by clicking the "Learn More" button to open a modal window.
 
 <p align="center">
-  <img src="./src/images/forReadme/modal.png alt="RENTACAR">
+  <img src="./src/images/forReadme/modal.png" alt="RENTACAR">
 </p>
 
 ## Usage
