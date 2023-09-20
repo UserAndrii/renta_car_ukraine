@@ -53,10 +53,10 @@ Redux Toolkit is a library for managing your application's state in React projec
 #### React Router DOM:
 React Router DOM is a library for navigation and routing in React applications, allowing you to create routes and navigate between pages.
 
-### Slick-Carousel: 
+#### Slick-Carousel: 
 Slick-Carousel is a library for creating carousel sliders for web pages. It provides convenient and powerful tools for creating and managing dynamic sliders that can be used for presentations of images, videos, texts, and other content.
 
-### React-Icons:
+#### React-Icons:
 React-Icons is an icon library for React projects. It provides access to a large set of icons that can be used directly in your application as React components.
 
 
