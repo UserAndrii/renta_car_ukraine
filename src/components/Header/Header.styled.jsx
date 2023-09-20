@@ -5,9 +5,13 @@ import { AiFillLinkedin } from 'react-icons/ai';
 import { FaViber, FaTelegram } from 'react-icons/fa';
 
 export const Container = styled.header`
+position: fixed;
   width: 100%;
+  height: 95px;
   background-color: #3470ff;
   padding: 18px 0;
+  border-bottom: 1px solid #ddddde;
+  z-index: 99;
 `;
 
 export const Content = styled.div`

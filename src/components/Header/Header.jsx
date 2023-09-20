@@ -30,6 +30,7 @@ const Header = () => {
             <li>
               <Item to="/catalog">Cars Park</Item>
             </li>
+
             <li>
               <Item to="/favorites">Your favorite cars</Item>
             </li>
