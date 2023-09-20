@@ -11,6 +11,7 @@ import {
   Text,
   Value,
 } from './ModalContent.styled';
+import noImages from '../../images/no-img.jpg';
 
 const ModalContent = ({ car }) => {
   const {
@@ -54,7 +55,7 @@ const ModalContent = ({ car }) => {
 
   return (
     <>
-      <Image src={img} alt={description} />
+      <Image src={img || noImages} alt={description} />
 
       <CarModel>
         {make} <span>{model}</span>, {year}

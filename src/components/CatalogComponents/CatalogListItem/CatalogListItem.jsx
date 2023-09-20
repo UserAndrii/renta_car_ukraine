@@ -14,6 +14,7 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 import Modal from 'components/Modal';
 import ModalContent from 'components/ModalContent';
+import noImages from '../../../images/no-img.jpg'
 
 const CatalogListItem = ({ car, favoriteCars, toggleFavorite }) => {
   const {
@@ -52,7 +53,7 @@ const CatalogListItem = ({ car, favoriteCars, toggleFavorite }) => {
           />
         )}
 
-        <Image src={img} alt={description} />
+        <Image src={img || noImages} alt={description} />
 
         <NameWrapper>
           <NameCar>
