@@ -1,17 +1,27 @@
 {
   "files": {
-    "main.css": "/renta_car_ukraine/static/css/main.ec353afa.css",
-    "main.js": "/renta_car_ukraine/static/js/main.0a6f2d89.js",
+    "main.css": "/renta_car_ukraine/static/css/main.13f3c5a9.css",
+    "main.js": "/renta_car_ukraine/static/js/main.90a7d760.js",
+    "static/media/wheel.png": "/renta_car_ukraine/static/media/wheel.13c857ebef67aaad1305.png",
+    "static/media/kia_hero.png": "/renta_car_ukraine/static/media/kia_hero.aee93f32d9689bd7e445.png",
+    "static/media/kljuchi_ot_mashiny.png": "/renta_car_ukraine/static/media/kljuchi_ot_mashiny.644314be79d54cefdd2b.png",
+    "static/media/toyota_description.png": "/renta_car_ukraine/static/media/toyota_description.5cb86a5baf0c226b346b.png",
+    "static/media/clock.png": "/renta_car_ukraine/static/media/clock.caa3eabafbb883017786.png",
     "static/media/Manrope-SemiBold.ttf": "/renta_car_ukraine/static/media/Manrope-SemiBold.310f108cc524df0e5ffc.ttf",
     "static/media/Manrope-Medium.ttf": "/renta_car_ukraine/static/media/Manrope-Medium.08894ccb04665d1a9d53.ttf",
     "static/media/Manrope-Regular.ttf": "/renta_car_ukraine/static/media/Manrope-Regular.a9b9e09fe6b69741f316.ttf",
     "static/media/Manrope-Bold.ttf": "/renta_car_ukraine/static/media/Manrope-Bold.47f6d7143da9d8c0e480.ttf",
+    "static/media/fon_map.png": "/renta_car_ukraine/static/media/fon_map.b44a6080dac3e14e7acb.png",
+    "static/media/slick.svg": "/renta_car_ukraine/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/renta_car_ukraine/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/renta_car_ukraine/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/renta_car_ukraine/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/renta_car_ukraine/index.html",
-    "main.ec353afa.css.map": "/renta_car_ukraine/static/css/main.ec353afa.css.map",
-    "main.0a6f2d89.js.map": "/renta_car_ukraine/static/js/main.0a6f2d89.js.map"
+    "main.13f3c5a9.css.map": "/renta_car_ukraine/static/css/main.13f3c5a9.css.map",
+    "main.90a7d760.js.map": "/renta_car_ukraine/static/js/main.90a7d760.js.map"
   },
   "entrypoints": [
-    "static/css/main.ec353afa.css",
-    "static/js/main.0a6f2d89.js"
+    "static/css/main.13f3c5a9.css",
+    "static/js/main.90a7d760.js"
   ]
 }
