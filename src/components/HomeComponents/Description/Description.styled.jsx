@@ -8,7 +8,7 @@ export const Title = styled.h2`
   text-align: center;
   font-size: 28px;
   line-height: 1.6;
-  color: #121417;
+  color: var(--main-text);
   margin: 30px 0;
 `;
 
@@ -33,12 +33,12 @@ export const Item = styled.li`
   .icon {
     width: 24px;
     height: 24px;
-    color: #fff;
+    color: var(--btn-text);
   }
 `;
 
 export const Text = styled.p`
-width: 230px;
+  width: 230px;
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   line-height: 1.5;
@@ -51,9 +51,9 @@ export const IconWrapper = styled.div`
 
   width: 50px;
   height: 50px;
-  border: 3px solid #fec100;
+  border: 3px solid var(--second-accent);
   border-radius: 10px;
-  background-color: #3470ff;
+  background-color: var(--accent);
 `;
 
 export const Imeges = styled.div`
@@ -64,7 +64,7 @@ export const Imeges = styled.div`
 export const SecondTitle = styled.h3`
   font-size: 28px;
   line-height: 1.6;
-  color: #121417;
+  color: var(--main-text);
   margin-bottom: 30px;
 `;
 

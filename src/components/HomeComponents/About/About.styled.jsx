@@ -8,7 +8,7 @@ export const Title = styled.h2`
   text-align: center;
   font-size: 28px;
   line-height: 1.6;
-  color: #121417;
+  color: var(--main-text);
   margin: 30px 0;
 `;
 
@@ -30,19 +30,19 @@ export const Imeges = styled.div`
 export const TextWrap = styled.div`
   padding: 20px 10px;
   max-width: 600px;
-  background-color: #3470ff;
+  background-color: var(--accent);
   border-radius: 16px;
 `;
 
 export const Head = styled.h5`
-  color: #fff;
+  color: var(--btn-text);
   text-align: center;
   font-size: 22px;
   line-height: 1.2;
 `;
 
 export const Text = styled.p`
-  color: #fff;
+  color: var(--btn-text);
   text-align: center;
   font-size: 12px;
   line-height: 1.5;

@@ -4,10 +4,23 @@
   box-sizing: border-box;
 }
 
+:root {
+  --main-text: #121417;
+  --secon-text: rgba(18, 20, 23, 0.5);
+  --accent: #3470ff;
+  --second-accent: #fec100;
+  --hover: #0b44cd;
+  --label-text: #f7f7fb;
+  --select-text: #8a8a89;
+  --input-bgc: rgba(138, 138, 137, 0.2);
+  --btn-text: #ffffff;
+  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   font-family: 'Manrope', sans-serif;
-  background-color: #FFFFFF;
-  color: #121417;
+  background-color: var(--btn-text);
+  color: var(--main-text);
 
   margin: 0;
   padding: 0;

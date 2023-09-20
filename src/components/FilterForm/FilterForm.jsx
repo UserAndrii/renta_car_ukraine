@@ -10,7 +10,6 @@ import {
 } from './FilterForm.styled';
 
 const FilterForm = ({ setFilterValue, cars }) => {
-
   const [brand, setBrand] = useState('');
   const [price, setPrice] = useState('');
   const [fromMileage, setFromMileage] = useState('');
@@ -100,7 +99,7 @@ const FilterForm = ({ setFilterValue, cars }) => {
       </Label>
 
       <Button type="submit">Search</Button>
-      <Button onClick={handleReset}>Reset</Button>
+      <Button onClick={handleReset}>Сancel</Button>
     </Container>
   );
 };

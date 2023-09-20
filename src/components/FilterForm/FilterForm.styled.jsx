@@ -12,7 +12,7 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
 
-  color: #8a8a89;
+  color: var(--select-text);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28;
@@ -22,8 +22,8 @@ export const Select = styled.select`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11;
-  color: #121417;
-  background-color: #f7f7fb;
+  color: var(--main-text);
+  background-color: var(--label-text);
 
   outline: none;
   appearance: none;
@@ -36,14 +36,14 @@ export const Select = styled.select`
 `;
 
 export const Option = styled.option`
-position: relative;
+  position: relative;
   color: rgba(18, 20, 23, 0.2);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.25;
 
   :hover {
-    background-color: #3470ff;
+    background-color: var(--accent);
   }
 `;
 
@@ -52,8 +52,8 @@ export const CustomInput = styled.input`
   font-weight: 500;
   line-height: 1.11;
 
-  color: #121417;
-  background-color: #f7f7fb;
+  color: var(--main-text);
+  background-color: var(--label-text);
   border: none;
   outline: none;
 
@@ -79,7 +79,7 @@ export const InputWrapper = styled.div`
 
   :before {
     content: 'From:';
-    color: #121417;
+    color: var(--main-text);
     font-size: 18px;
     font-weight: 500;
     line-height: 1.11;
@@ -91,7 +91,7 @@ export const InputWrapper = styled.div`
   }
   :after {
     content: 'To:';
-    color: #121417;
+    color: var(--main-text);
     font-size: 18px;
     font-weight: 500;
     line-height: 1.11;
@@ -104,7 +104,7 @@ export const InputWrapper = styled.div`
 `;
 
 export const Button = styled.button`
-  color: #fff;
+  color: var(--btn-text);
   font-size: 14px;
   font-weight: 600;
   line-height: 1.43;
@@ -116,11 +116,11 @@ export const Button = styled.button`
   cursor: pointer;
   border: none;
   border-radius: 12px;
-  background-color: #3470ff;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--accent);
+  transition: background-color var(--transition);
 
   :hover,
   :focus {
-    background-color: #0b44cd;
+    background-color: var(--hover);
   }
 `;

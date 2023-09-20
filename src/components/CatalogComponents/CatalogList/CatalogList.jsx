@@ -5,6 +5,7 @@ import { List } from './CatalogList.styled';
 
 import LoadMoreBtn from '../LoadMoreBtn';
 import CatalogListItem from '../CatalogListItem';
+import NoFavoriteCars from '../NoFavoriteCars';
 
 const CatalogList = ({ cars, filterValue }) => {
   const elementsOnThePage = 8;
@@ -18,7 +19,6 @@ const CatalogList = ({ cars, filterValue }) => {
   useEffect(() => {
     localStorage.setItem('favoriteCars', JSON.stringify(favoriteCars));
   }, [favoriteCars]);
-
 
   function filterCars(cars, filterValue) {
     if (!filterValue) return cars;
@@ -84,7 +84,11 @@ const CatalogList = ({ cars, filterValue }) => {
 
   return (
     <>
-      <List>{renderCars(0, currentIndex)}</List>
+      {renderCars(0, currentIndex)?.length > 0 ? (
+        <List>{renderCars(0, currentIndex)}</List>
+      ) : (
+        <NoFavoriteCars />
+      )}
 
       {currentIndex <= cars?.length && pathname !== '/favorites' && (
         <LoadMoreBtn

@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const LoadMoreButton = styled.button`
   display: block;
-  color: #3470ff;
+  color: var(--accent);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
@@ -14,10 +14,10 @@ export const LoadMoreButton = styled.button`
   border: none;
   background-color: inherit;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition);
 
   :hover,
   :focus {
-    color: #0b44cd;
+    color: var(--hover);
   }
 `;

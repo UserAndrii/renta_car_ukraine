@@ -1,5 +1,15 @@
-import { Button, Check, Container, Imeges, Item, List, Location, Title, Wrapper } from './Hero.styled';
-import HeroImg from '../../../images/kia_hero.png'
+import {
+  Button,
+  Check,
+  Container,
+  Imeges,
+  Item,
+  List,
+  Location,
+  Title,
+  Wrapper,
+} from './Hero.styled';
+import HeroImg from '../../../images/kia_hero.png';
 
 const Hero = () => {
   return (
@@ -36,6 +46,6 @@ const Hero = () => {
       </Wrapper>
     </Container>
   );
-}
+};
 
-export default Hero
+export default Hero;

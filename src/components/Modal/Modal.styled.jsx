@@ -18,14 +18,14 @@ export const ModalWindow = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 24px;
-  background-color: #fff;
+  background-color: var(--btn-text);
 
   width: 541px;
   padding: 40px;
 
   .modal {
     opacity: 0;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity var(--transition);
   }
 
   .modal.open {
@@ -49,11 +49,11 @@ export const Button = styled.button`
   background-color: inherit;
   cursor: pointer;
   outline: none;
-  color: #121417;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--main-text);
+  transition: color var(--transition);
 
   :hover,
   :focus {
-    color: #0b44cd;
+    color: var(--hover);
   }
 `;

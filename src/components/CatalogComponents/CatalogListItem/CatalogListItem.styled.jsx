@@ -13,7 +13,7 @@ export const Item = styled.li`
     width: 18px;
     height: 18px;
     color: #ffffffcc;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform var(--transition);
 
     :hover,
     :focus {
@@ -22,7 +22,7 @@ export const Item = styled.li`
   }
 
   .heart-active {
-    color: #3470ff;
+    color: var(--accent);
   }
 `;
 
@@ -54,7 +54,7 @@ export const NameCar = styled.p`
 `;
 
 export const ModelCar = styled.span`
-  color: #3470ff;
+  color: var(--accent);
 `;
 
 export const Description = styled.p`
@@ -74,7 +74,7 @@ export const Button = styled.button`
   align-items: center;
   flex-shrink: 0;
 
-  color: #fff;
+  color: var(--btn-text);
   font-size: 14px;
   font-weight: 600;
   line-height: 1.43;
@@ -86,11 +86,11 @@ export const Button = styled.button`
   cursor: pointer;
   border: none;
   border-radius: 12px;
-  background-color: #3470ff;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--accent);
+  transition: background-color var(--transition);
 
   :hover,
   :focus {
-    background-color: #0b44cd;
+    background-color: var(--hover);
   }
 `;

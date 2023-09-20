@@ -5,10 +5,10 @@ import { AiFillLinkedin } from 'react-icons/ai';
 import { FaViber, FaTelegram } from 'react-icons/fa';
 
 export const Container = styled.header`
-position: fixed;
-  width: 100%;
+  position: fixed;
+  width: 1440px;
   height: 95px;
-  background-color: #3470ff;
+  background-color: var(--accent);
   padding: 18px 0;
   border-bottom: 1px solid #ddddde;
   z-index: 99;
@@ -25,11 +25,11 @@ export const Logo = styled.p`
   font-size: 36px;
   line-height: 1.6;
 
-  color: #ffffff;
+  color: var(--btn-text);
 `;
 
 export const SpanLogo = styled.span`
-  color: #fec100;
+  color: var(--second-accent);
 `;
 
 export const Nav = styled.nav`
@@ -42,31 +42,31 @@ export const List = styled.ul`
 `;
 
 export const Item = styled(Link)`
-  color: #ffffff;
+  color: var(--btn-text);
   font-weight: 500;
   font-size: 22px;
   line-height: 1.2;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition);
 
   :hover,
   :focus {
-    color: #fec100;
+    color: var(--second-accent);
   }
 `;
 
 export const Networks = styled.ul`
   display: flex;
   gap: 18px;
-  color: #ffffff;
+  color: var(--btn-text);
 `;
 
 export const LinkNetwork = styled.a`
-  color: #ffffff;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--btn-text);
+  transition: color var(--transition);
 
   :hover,
   :focus {
-    color: #fec100;
+    color: var(--second-accent);
   }
 `;
 

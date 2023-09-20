@@ -1,18 +1,21 @@
-import { Container } from './Layout.styled';
-
-import Header from '../Header';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+
+import { Container, Main } from './Layout.styled';
+
+import Header from '../Header';
+import Footer from '../Footer';
 
 const Layout = () => {
   return (
     <Container>
       <Header />
-      <main style={{paddingTop: 95}}>
+      <Main>
         <Suspense fallback={'Loading...'}>
           <Outlet />
         </Suspense>
-      </main>
+      </Main>
+      <Footer />
     </Container>
   );
 };

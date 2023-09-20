@@ -16,7 +16,7 @@ export const Image = styled.img`
 `;
 
 export const CarModel = styled.p`
-  color: #121417;
+  color: var(--main-text);
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
@@ -25,7 +25,7 @@ export const CarModel = styled.p`
   margin-bottom: 8px;
 
   & > span {
-    color: #3470ff;
+    color: var(--accent);
   }
 `;
 
@@ -42,14 +42,14 @@ export const Line = styled.span`
 
 export const Text = styled.span`
   display: inline-block;
-  color: #121417;
+  color: var(--main-text);
   font-size: 14px;
   line-height: 1.43;
   margin-top: 14px;
 `;
 
 export const Subtitle = styled.p`
-  color: #121417;
+  color: var(--main-text);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.43;
@@ -76,17 +76,17 @@ export const Value = styled.p`
   letter-spacing: -0.24px;
 
   & > span {
-    color: #3470ff;
+    color: var(--accent);
   }
 `;
 
 export const RentalBtn = styled.a`
-display: inline-block;
+  display: inline-block;
   padding: 12px 50px;
   margin-top: 24px;
   border-radius: 12px;
-  background: #3470ff;
-  color: #fff;
+  background: var(--accent);
+  color: var(--btn-text);
 
   font-size: 14px;
   font-weight: 600;

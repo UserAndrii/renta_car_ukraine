@@ -1,4 +1,4 @@
 @import-normalize; /* bring in normalize.css styles */
-@import url("./styles/fonts.css");
-@import url("./styles/utils.css");
 
+@import url('./styles/fonts.css');
+@import url('./styles/utils.css');
