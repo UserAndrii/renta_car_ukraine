@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkrenta_car_ukraine=self.webpackChunkrenta_car_ukraine||[]).push([[69],{2069:function(e,a,r){r.r(a);var t=r(9439),n=r(2791),u=r(2071),s=r(6004),c=r(8003),l=r(184);a.default=function(){var e=(0,u.J)().data,a=(0,n.useState)(null),r=(0,t.Z)(a,2),i=r[0],f=r[1];return(0,l.jsxs)(l.Fragment,{children:[(0,l.jsx)(c.Z,{setFilterValue:f,cars:e}),(0,l.jsx)(s.Z,{cars:e,filterValue:i})]})}}}]);
+//# sourceMappingURL=69.6a129c30.chunk.js.map
