@@ -5,15 +5,17 @@ import FilterForm from 'components/FilterForm';
 import CatalogList from 'components/CatalogComponents/CatalogList';
 
 const FavoriteCarsPage = () => {
-  const { data: cars } = useGetCarsQuery();
+  const { data: cars, isFetching } = useGetCarsQuery();
 
   const [filterValue, setFilterValue] = useState();
 
   return (
-    <>
-      <FilterForm setFilterValue={setFilterValue} cars={cars} />
-      <CatalogList cars={cars} filterValue={filterValue} />
-    </>
+    !isFetching && (
+      <>
+        <FilterForm setFilterValue={setFilterValue} cars={cars} />
+        <CatalogList cars={cars} filterValue={filterValue} />
+      </>
+    )
   );
 };
 

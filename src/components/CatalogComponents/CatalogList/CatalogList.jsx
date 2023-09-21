@@ -82,21 +82,25 @@ const CatalogList = ({ cars, filterValue }) => {
     }
   };
 
+  const renderedCars = renderCars(0, currentIndex);
+
   return (
     <>
-      {renderCars(0, currentIndex)?.length > 0 ? (
-        <List>{renderCars(0, currentIndex)}</List>
+      {renderedCars?.length > 0 ? (
+        <List>{renderedCars}</List>
       ) : (
         <NoFavoriteCars />
       )}
 
-      {currentIndex <= cars?.length && pathname !== '/favorites' && (
-        <LoadMoreBtn
-          loadMore={() =>
-            setCurrentIndex(prevIndex => prevIndex + elementsOnThePage)
-          }
-        />
-      )}
+      {currentIndex <= cars?.length &&
+        renderedCars?.length >= elementsOnThePage &&
+        currentIndex <= renderedCars?.length && (
+          <LoadMoreBtn
+            loadMore={() =>
+              setCurrentIndex(prevIndex => prevIndex + elementsOnThePage)
+            }
+          />
+        )}
     </>
   );
 };
