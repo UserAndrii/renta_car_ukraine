@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { AiFillLinkedin } from 'react-icons/ai';
 import { FaViber, FaTelegram } from 'react-icons/fa';
 
@@ -41,12 +41,19 @@ export const List = styled.ul`
   gap: 80px;
 `;
 
-export const Item = styled(Link)`
+export const Item = styled(NavLink)`
   color: var(--btn-text);
   font-weight: 500;
   font-size: 22px;
   line-height: 1.2;
   transition: color var(--transition);
+  padding: 12px 12px;
+
+  &.active {
+    border-radius: 12px;
+    background: var(--hover);
+    color: var(--btn-text);
+  }
 
   :hover,
   :focus {

@@ -29,7 +29,7 @@ const CatalogList = ({ cars, filterValue }) => {
       const passesBrand =
         !brand || car.make.toLowerCase() === brand.toLowerCase();
       const passesPrice =
-        !price || parseInt(car.rentalPrice.slice(1)) === parseInt(price);
+        !price || parseInt(car.rentalPrice.slice(1)) <= parseInt(price);
       const passesMileage =
         !fromMileage ||
         !toMileage ||
