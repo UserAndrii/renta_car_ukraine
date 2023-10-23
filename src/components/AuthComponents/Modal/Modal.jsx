@@ -1,12 +1,15 @@
 import { useLocation } from 'react-router-dom';
-import { Wrapper } from './Modal.styled';
+import { Title, Wrapper } from './Modal.styled';
+
+import FormComponent from '../FormComponent';
 
 const Modal = () => {
   const { pathname } = useLocation();
 
   return (
     <Wrapper>
-      <h2>{pathname === '/login' ? 'Login' : 'Register'}</h2>
+      <Title>{pathname === '/login' ? 'Login' : 'Register'}</Title>
+      <FormComponent />
     </Wrapper>
   );
 };
