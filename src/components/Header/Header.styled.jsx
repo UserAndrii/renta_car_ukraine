@@ -61,36 +61,4 @@ export const Item = styled(NavLink)`
   }
 `;
 
-export const Networks = styled.ul`
-  display: flex;
-  gap: 18px;
-  color: var(--btn-text);
-`;
-
-export const LinkNetwork = styled.a`
-  color: var(--btn-text);
-  transition: color var(--transition);
-
-  :hover,
-  :focus {
-    color: var(--second-accent);
-  }
-`;
-
-export const IconLinkedin = styled(AiFillLinkedin)`
-  width: 30px;
-  height: 30px;
-  color: inherit;
-`;
-
-export const IconViber = styled(FaViber)`
-  width: 30px;
-  height: 30px;
-  color: inherit;
-`;
-
-export const IconTelegram = styled(FaTelegram)`
-  width: 30px;
-  height: 30px;
-  color: inherit;
-`;
+export const AuthList = styled.ul``;

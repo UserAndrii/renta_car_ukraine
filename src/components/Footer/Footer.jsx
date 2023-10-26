@@ -20,8 +20,8 @@ const Footer = () => {
         </IconLink>
         <IconLink href="https://www.instagram.com/gadarandre/" target="_blank">
           <FaInstagram size={30} />
-              </IconLink>
-              
+        </IconLink>
+
         <div>
           <Copyright>&copy; 2023 | Created by Andrii Hadar.</Copyright>
         </div>
