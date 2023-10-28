@@ -2,7 +2,7 @@ import { useState } from 'react';
 import EmailInput from '../EmailInput';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
-import { Button, Form } from './FormComponent.styled';
+import { Button, Form, InAuth } from './FormComponent.styled';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -43,6 +43,11 @@ const FormComponent = () => {
       <EmailInput setEmail={setEmail} />
       <PasswordInput setPassword={setPassword} />
       <Button type="submit">Submit</Button>
+      <InAuth to={pathname === '/register' ? '/login' : '/register'}>
+        {pathname !== '/register'
+          ? "Don't have an account? Sign Up"
+          : 'Already have an account? Log In'}
+      </InAuth>
     </Form>
   );
 };

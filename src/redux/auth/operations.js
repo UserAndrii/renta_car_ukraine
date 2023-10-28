@@ -13,7 +13,7 @@ const token = {
 };
 
 export const userRegistration = createAsyncThunk(
-  'user/register',
+  'auth/register',
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/register', credentials);
@@ -27,12 +27,47 @@ export const userRegistration = createAsyncThunk(
 );
 
 export const userLogin = createAsyncThunk(
-  'user/login',
+  'auth/login',
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/login', credentials);
       token.set(data.token);
 
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchCurrentUser = createAsyncThunk(
+  'auth/getCurrentUser',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('There is no logged in user');
+    }
+
+    token.set(persistedToken);
+
+    try {
+      const { data } = await axios.get('/current');
+
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const userLogOut = createAsyncThunk(
+  'auth/logOut',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post('/logout', credentials);
+      token.set(data.token);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

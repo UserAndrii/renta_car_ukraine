@@ -14,9 +14,13 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 import Modal from 'components/Modal';
 import ModalContent from 'components/ModalContent';
-import noImages from '../../../images/no-img.jpg'
+import noImages from '../../../images/no-img.jpg';
+import { useSelector } from 'react-redux';
+import { selectIsLogged } from 'redux/auth/selectors';
 
 const CatalogListItem = ({ car, favoriteCars, toggleFavorite }) => {
+  const isLogged = useSelector(selectIsLogged);
+
   const {
     id,
     img,
@@ -43,12 +47,12 @@ const CatalogListItem = ({ car, favoriteCars, toggleFavorite }) => {
       <Item>
         {favoriteCars.includes(id) ? (
           <AiFillHeart
-            className="heart heart-active"
+            className={isLogged ? 'heart heart-active' : 'heard none'}
             onClick={() => toggleFavorite(id)}
           />
         ) : (
           <AiOutlineHeart
-            className="heart"
+            className={isLogged ? 'heart' : 'heard none'}
             onClick={() => toggleFavorite(id)}
           />
         )}

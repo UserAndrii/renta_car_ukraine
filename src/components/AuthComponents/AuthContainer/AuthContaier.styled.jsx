@@ -5,8 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: end;
+  flex: 1;
 
   background: linear-gradient(to bottom, #007bff, #0056b3);
-  min-width: 100%;
-  min-height: 100vh;
 `;

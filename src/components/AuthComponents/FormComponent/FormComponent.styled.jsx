@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { AiOutlineMail, AiFillLock, AiFillUnlock } from 'react-icons/ai';
 
@@ -119,4 +120,10 @@ export const Button = styled.button`
     color: var(--btn-text);
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
   }
+`;
+
+export const InAuth = styled(Link)`
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--btn-text);
 `;

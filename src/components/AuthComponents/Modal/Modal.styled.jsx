@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    height: 350px;
+    height: 370px;
   }
 
   @media screen and (min-width: 1024px) {

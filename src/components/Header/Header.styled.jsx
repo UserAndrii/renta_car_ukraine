@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 
 import { NavLink } from 'react-router-dom';
-import { AiFillLinkedin } from 'react-icons/ai';
-import { FaViber, FaTelegram } from 'react-icons/fa';
 
 export const Container = styled.header`
   position: fixed;
@@ -43,9 +41,10 @@ export const List = styled.ul`
 
 export const Item = styled(NavLink)`
   color: var(--btn-text);
+
   font-weight: 500;
-  font-size: 22px;
-  line-height: 1.2;
+  font-size: 14px;
+  line-height: 1.28;
   transition: color var(--transition);
   padding: 12px 12px;
 
@@ -59,6 +58,9 @@ export const Item = styled(NavLink)`
   :focus {
     color: var(--second-accent);
   }
-`;
 
-export const AuthList = styled.ul``;
+  @media screen and (min-width: 768px) {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+`;

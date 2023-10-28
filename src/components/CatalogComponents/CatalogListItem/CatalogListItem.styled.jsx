@@ -24,6 +24,10 @@ export const Item = styled.li`
   .heart-active {
     color: var(--accent);
   }
+
+  .none {
+    display: none;
+  }
 `;
 
 export const Image = styled.img`

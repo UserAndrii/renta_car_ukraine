@@ -1,7 +1,11 @@
-import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { lazy, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Layout from './Layout';
+
+import { fetchCurrentUser } from 'redux/auth/operations';
+import { selectIsLogged, selectIsRefreshing } from 'redux/auth/selectors';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
@@ -9,18 +13,67 @@ const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const CatalogPage = lazy(() => import('pages/CatalogPage'));
 const FavoriteCarsPage = lazy(() => import('pages/FavoriteCarsPage'));
 
+function RestrictedRoutes({ component, navigateTo = '/' }) {
+  const isLogged = useSelector(selectIsLogged);
+  return isLogged ? <Navigate to={navigateTo} /> : component;
+}
+
+function PrivateRouters({ component, navigateTo = '/' }) {
+  const isLogged = useSelector(selectIsLogged);
+  const isRefreshing = useSelector(selectIsRefreshing);
+  return !isLogged && !isRefreshing ? <Navigate to={navigateTo} /> : component;
+}
+
 function App() {
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
   return (
-    <Routes>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route exact path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="catalog" element={<CatalogPage />} />
-        <Route path="favorites" element={<FavoriteCarsPage />} />
-        <Route path="*" element={<HomePage />} />
-      </Route>
-    </Routes>
+    !isRefreshing && (
+      <Routes>
+        <Route exact path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoutes
+                component={<LoginPage />}
+                navigateTo="/favorites"
+              />
+            }
+          />
+
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoutes
+                component={<RegisterPage />}
+                navigateTo="/favorites"
+              />
+            }
+          />
+
+          <Route path="catalog" element={<CatalogPage />} />
+
+          <Route
+            path="favorites"
+            element={
+              <PrivateRouters
+                component={<FavoriteCarsPage />}
+                navigateTo="/login"
+              />
+            }
+          />
+
+          <Route path="*" element={<HomePage />} />
+        </Route>
+      </Routes>
+    )
   );
 }
 
