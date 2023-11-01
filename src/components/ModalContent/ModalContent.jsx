@@ -21,7 +21,7 @@ const ModalContent = ({ car }) => {
     model,
     year,
     address,
-    id,
+    _id,
     type,
     fuelConsumption,
     engineSize,
@@ -33,7 +33,7 @@ const ModalContent = ({ car }) => {
   } = car;
 
   /* eslint-disable */
-  const [_, __, ___, city, country] = address.split(' ');
+  const [_, city, country] = address.split(',');
   const [minimumAge, validLicense, securityDeposit] =
     rentalConditions.split('\n');
   /* eslint-enable */
@@ -55,18 +55,18 @@ const ModalContent = ({ car }) => {
 
   return (
     <>
-      <Image src={img || noImages} alt={description} />
+      <Image src={img === '' ? noImages : img} alt={description} />
 
       <CarModel>
         {make} <span>{model}</span>, {year}
       </CarModel>
 
       <Description>
-        {city.replace(',', '')}
+        {city?.replace(',', '')}
         <Line>|</Line>
         {country}
         <Line>|</Line>
-        Id: {id}
+        Id: {_id.substring(0, 4)}
         <Line>|</Line>
         Year: {year}
         <Line>|</Line>
@@ -83,7 +83,7 @@ const ModalContent = ({ car }) => {
       <Subtitle>Accessories and functionalities:</Subtitle>
 
       <Description>
-        {accessories.map((acc, index) => (
+        {accessories?.map((acc, index) => (
           <React.Fragment key={index}>
             {index > 0 && <Line>|</Line>}
             {acc}
@@ -92,7 +92,7 @@ const ModalContent = ({ car }) => {
       </Description>
 
       <Description>
-        {functionalities.map((fun, index) => (
+        {functionalities?.map((fun, index) => (
           <React.Fragment key={index}>
             {index > 0 && <Line>|</Line>}
             {fun}

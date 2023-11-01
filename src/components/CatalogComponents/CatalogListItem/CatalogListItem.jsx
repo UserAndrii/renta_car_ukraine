@@ -39,7 +39,7 @@ const CatalogListItem = ({ car, favoriteCars, toggleFavorite }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   /* eslint-disable */
-  const [_, __, ___, city, country] = address.split(' ');
+  const [_, city, country] = address.split(',');
   /* eslint-enable */
 
   return (
@@ -68,7 +68,7 @@ const CatalogListItem = ({ car, favoriteCars, toggleFavorite }) => {
 
         <div>
           <Description>
-            {city.replace(',', '')}
+            {city?.replace(',', '')}
             <Line>|</Line>
             {country}
             <Line>|</Line>
@@ -81,7 +81,9 @@ const CatalogListItem = ({ car, favoriteCars, toggleFavorite }) => {
             <Line>|</Line>
             {mileage}
             <Line>|</Line>
-            {functionalities[0].substring(0, 12) + '...'}
+            {functionalities.length !== 0
+              ? functionalities[0]?.substring(0, 12) + '...'
+              : null}
           </Description>
         </div>
 
