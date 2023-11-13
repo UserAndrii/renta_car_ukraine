@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/498.4b058397.chunk.js","mappings":"+IAIA,UAJuB,WACrB,OAAOA,EAAAA,EAAAA,KAAA,OAAAC,SAAK,kBACd,C","sources":["pages/ServiceCarPage.jsx"],"sourcesContent":["const ServiceCarPage = () => {\n  return <div>ServiceCarPage</div>;\n};\n\nexport default ServiceCarPage;\n"],"names":["_jsx","children"],"sourceRoot":""}
