@@ -5,13 +5,18 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
 
 import { fetchCurrentUser } from 'redux/auth/operations';
-import { selectIsLogged, selectIsRefreshing } from 'redux/auth/selectors';
+import {
+  selectIsAdmin,
+  selectIsLogged,
+  selectIsRefreshing,
+} from 'redux/auth/selectors';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const CatalogPage = lazy(() => import('pages/CatalogPage'));
 const FavoriteCarsPage = lazy(() => import('pages/FavoriteCarsPage'));
+const ServiceCarPage = lazy(() => import('pages/ServiceCarPage'));
 
 function RestrictedRoutes({ component, navigateTo = '/' }) {
   const isLogged = useSelector(selectIsLogged);
@@ -21,7 +26,15 @@ function RestrictedRoutes({ component, navigateTo = '/' }) {
 function PrivateRouters({ component, navigateTo = '/' }) {
   const isLogged = useSelector(selectIsLogged);
   const isRefreshing = useSelector(selectIsRefreshing);
+
   return !isLogged && !isRefreshing ? <Navigate to={navigateTo} /> : component;
+}
+
+function AdminRoutes({ component, navigateTo = '/' }) {
+  const isLogged = useSelector(selectIsLogged);
+  const isAdmin = useSelector(selectIsAdmin);
+
+  return isLogged && !isAdmin ? <Navigate to={navigateTo} /> : component;
 }
 
 function App() {
@@ -66,6 +79,16 @@ function App() {
               <PrivateRouters
                 component={<FavoriteCarsPage />}
                 navigateTo="/login"
+              />
+            }
+          />
+
+          <Route
+            path="service"
+            element={
+              <AdminRoutes
+                component={<ServiceCarPage />}
+                navigateTo="/catalog"
               />
             }
           />

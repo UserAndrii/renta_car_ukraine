@@ -11,10 +11,11 @@ import {
 } from './Header.styled';
 import AuthNav from 'components/AuthNav';
 import { useSelector } from 'react-redux';
-import { selectIsLogged } from 'redux/auth/selectors';
+import { selectIsAdmin, selectIsLogged } from 'redux/auth/selectors';
 
 const Header = () => {
   const isLogged = useSelector(selectIsLogged);
+  const isAdmin = useSelector(selectIsAdmin);
 
   return (
     <Container>
@@ -33,6 +34,11 @@ const Header = () => {
             {isLogged && (
               <li>
                 <Item to="/favorites">My favorite cars</Item>
+              </li>
+            )}
+            {isAdmin && (
+              <li>
+                <Item to="/service">Administration</Item>
               </li>
             )}
           </List>
