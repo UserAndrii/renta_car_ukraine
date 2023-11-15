@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkrenta_car_ukraine=self.webpackChunkrenta_car_ukraine||[]).push([[498],{498:function(e,r,a){a.r(r);var n=a(3329);r.default=function(){return(0,n.jsx)("div",{children:"ServiceCarPage"})}}}]);
-//# sourceMappingURL=498.4b058397.chunk.js.map
