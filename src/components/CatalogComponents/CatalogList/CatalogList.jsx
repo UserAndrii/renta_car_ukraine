@@ -69,6 +69,18 @@ const CatalogList = ({ cars, filterValue }) => {
             />
           ));
 
+      case '/service':
+        return filteredCars
+          ?.slice(start, end)
+          .map(car => (
+            <CatalogListItem
+              car={car}
+              key={car.id}
+              favoriteCars={favoriteCars}
+              toggleFavorite={toggleFavorite}
+            />
+          ));
+
       default:
         return;
     }
