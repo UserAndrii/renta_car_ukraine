@@ -8,8 +8,6 @@ const ServiceCarPage = () => {
   const { data: cars, isFetching } = useGetCarsQuery();
   const [filterValue, setFilterValue] = useState(null);
 
-  console.log(cars);
-
   return (
     !isFetching && (
       <>

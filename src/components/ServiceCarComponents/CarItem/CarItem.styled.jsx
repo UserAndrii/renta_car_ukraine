@@ -7,12 +7,21 @@ export const Item = styled.li`
 
 export const ImageContainer = styled.div`
   position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+
+  :hover {
+    box-shadow: 0 0 10px 5px rgba(128, 128, 128, 0.5);
+
+    .box {
+      transform: translate(-50%, -50%);
+    }
+  }
 `;
 
 export const Image = styled.img`
   height: 268px;
   object-fit: cover;
-  border-radius: 14px;
   background-position: center;
   background-size: cover;
   background: linear-gradient(
@@ -25,10 +34,26 @@ export const Image = styled.img`
 
 export const IconContainer = styled.div`
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+
+  gap: 50px;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 20px;
+
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  /* display: none; */
+  transform: translate(-150%, -50%);
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    #ffffff 70%
+  );
+
+  transition: transform var(--transition);
 `;
 
 export const NameWrapper = styled.div`
@@ -49,11 +74,15 @@ export const ModelCar = styled.span`
 `;
 
 export const EditCar = styled(MdOutlineEdit)`
-  width: 30px;
-  height: 30px;
+  cursor: pointer;
+  color: var(--accent);
+  width: 80px;
+  height: 80px;
 `;
 
 export const DeleteCar = styled(MdOutlineDelete)`
-  width: 30px;
-  height: 30px;
+  cursor: pointer;
+  color: var(--accent);
+  width: 80px;
+  height: 80px;
 `;
