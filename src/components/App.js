@@ -95,7 +95,7 @@ function App() {
           />
 
           <Route
-            path="/service/edit"
+            path="/service/edit/:carId"
             element={
               <AdminRoutes component={<EditCarPage />} navigateTo="/catalog" />
             }

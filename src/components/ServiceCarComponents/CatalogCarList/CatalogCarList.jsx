@@ -27,7 +27,7 @@ const CatalogCarList = ({ cars, filterValue }) => {
   return (
     <List>
       {filteredCars?.map(car => (
-        <CarItem car={car} key={car.id} />
+        <CarItem car={car} key={car._id} />
       ))}
     </List>
   );

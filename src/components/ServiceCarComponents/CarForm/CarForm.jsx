@@ -16,12 +16,15 @@ import {
   Textarea,
   TextareaWrapper,
 } from './CarForm.styled';
+import { useUpdateRentCarMutation } from 'redux/carsApi';
 
 const CarForm = () => {
   const navigate = useNavigate();
   const { state: car } = useLocation();
-  const [carPreviewUrl, setCarPreviewUrl] = useState('');
+
   const carInputRef = useRef(null);
+  const [updateRentCar] = useUpdateRentCarMutation();
+  const [carPreviewUrl, setCarPreviewUrl] = useState('');
 
   const initialValues = {
     year: car.year || 0,
@@ -34,17 +37,39 @@ const CarForm = () => {
     engineSize: car.engineSize || '',
     accessories: car.accessories.join(', ') || '', // []
     functionalities: car.functionalities.join(', ') || '', // []
-    rentalPrice: car.rentalPrice || '',
+    rentalPrice: car.rentalPrice || '$',
     rentalCompany: car.rentalCompany || '',
     address: car.address || '',
     rentalConditions: car.rentalConditions.replaceAll('\n', ', ') || '',
     mileage: car.mileage || 0,
+    _id: car._id || 1111,
   };
 
   const formik = useFormik({
     initialValues: initialValues,
-    onSubmit: values => {
-      console.log(values);
+    onSubmit: async data => {
+      try {
+        if (!data.rentalPrice.includes('$')) {
+          data.rentalPrice = '$'.concat(data.rentalPrice);
+        }
+
+        if (data.rentalConditions) {
+          data.rentalConditions = data.rentalConditions.replaceAll(',', '\n');
+        }
+
+        if (data.accessories) {
+          data.accessories = data.accessories.split(',');
+        }
+
+        if (data.functionalities) {
+          data.functionalities = data.functionalities.split(',');
+        }
+
+        await updateRentCar(data).unwrap();
+        navigate('/service');
+      } catch (error) {
+        console.log('ERROR: ', error);
+      }
     },
   });
 

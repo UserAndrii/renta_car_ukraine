@@ -23,7 +23,9 @@ const CarItem = ({ car }) => {
       <ImageContainer>
         <Image src={img || noImages} alt={description} />
         <IconContainer className="box">
-          <EditCar onClick={() => navigate('/service/edit', { state: car })} />
+          <EditCar
+            onClick={() => navigate(`/service/edit/${car._id}`, { state: car })}
+          />
           <DeleteCar />
         </IconContainer>
       </ImageContainer>

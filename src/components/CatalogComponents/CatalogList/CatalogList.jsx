@@ -50,7 +50,7 @@ const CatalogList = ({ cars, filterValue }) => {
           .map(car => (
             <CatalogListItem
               car={car}
-              key={car.id}
+              key={car._id}
               favoriteCars={favoriteCars}
               toggleFavorite={toggleFavorite}
             />
@@ -63,7 +63,7 @@ const CatalogList = ({ cars, filterValue }) => {
           .map(car => (
             <CatalogListItem
               car={car}
-              key={car.id}
+              key={car._id}
               favoriteCars={favoriteCars}
               toggleFavorite={toggleFavorite}
             />
@@ -75,7 +75,7 @@ const CatalogList = ({ cars, filterValue }) => {
           .map(car => (
             <CatalogListItem
               car={car}
-              key={car.id}
+              key={car._id}
               favoriteCars={favoriteCars}
               toggleFavorite={toggleFavorite}
             />
