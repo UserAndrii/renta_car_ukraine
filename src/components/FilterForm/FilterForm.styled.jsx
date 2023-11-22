@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { IoMdAddCircleOutline } from 'react-icons/io';
 
 export const Container = styled.form`
   display: flex;
@@ -104,6 +105,10 @@ export const InputWrapper = styled.div`
 `;
 
 export const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   color: var(--btn-text);
   font-size: 14px;
   font-weight: 600;
@@ -111,7 +116,6 @@ export const Button = styled.button`
 
   width: 136px;
   height: 48px;
-  padding: 14px 44px;
 
   cursor: pointer;
   border: none;
@@ -123,4 +127,11 @@ export const Button = styled.button`
   :focus {
     background-color: var(--hover);
   }
+`;
+
+export const AddIcon = styled(IoMdAddCircleOutline)`
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  color: var(--btn-text);
 `;

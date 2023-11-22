@@ -21,9 +21,17 @@ export const carsApi = createApi({
       query: () => '/cars/all',
     }),
 
+    createNewCar: builder.mutation({
+      query: data => ({
+        url: '/cars',
+        method: 'POST',
+        body: data,
+      }),
+    }),
+
     updateRentCar: builder.mutation({
-      query: ({ _id, ...data }) => ({
-        url: `/cars/${_id}`,
+      query: (id, data) => ({
+        url: `/cars/${id}`,
         method: 'PATCH',
         body: data,
       }),
@@ -31,4 +39,8 @@ export const carsApi = createApi({
   }),
 });
 
-export const { useGetCarsQuery, useUpdateRentCarMutation } = carsApi;
+export const {
+  useGetCarsQuery,
+  useCreateNewCarMutation,
+  useUpdateRentCarMutation,
+} = carsApi;

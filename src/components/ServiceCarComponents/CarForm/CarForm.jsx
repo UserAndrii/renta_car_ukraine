@@ -4,6 +4,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import noImages from '../../../images/no-img.jpg';
 import {
+  useCreateNewCarMutation,
+  useUpdateRentCarMutation,
+} from 'redux/carsApi';
+import {
   AddFotoIcon,
   Btn,
   Form,
@@ -16,33 +20,32 @@ import {
   Textarea,
   TextareaWrapper,
 } from './CarForm.styled';
-import { useUpdateRentCarMutation } from 'redux/carsApi';
 
 const CarForm = () => {
   const navigate = useNavigate();
-  const { state: car } = useLocation();
-
   const carInputRef = useRef(null);
+  const { pathname, state: car } = useLocation();
+
+  const [createNewCar] = useCreateNewCarMutation();
   const [updateRentCar] = useUpdateRentCarMutation();
   const [carPreviewUrl, setCarPreviewUrl] = useState('');
 
   const initialValues = {
-    year: car.year || 0,
-    make: car.make || '',
-    model: car.model || '',
-    type: car.type || '',
-    img: car.img || '',
-    description: car.description || '',
-    fuelConsumption: car.fuelConsumption || '',
-    engineSize: car.engineSize || '',
-    accessories: car.accessories.join(', ') || '', // []
-    functionalities: car.functionalities.join(', ') || '', // []
-    rentalPrice: car.rentalPrice || '$',
-    rentalCompany: car.rentalCompany || '',
-    address: car.address || '',
-    rentalConditions: car.rentalConditions.replaceAll('\n', ', ') || '',
-    mileage: car.mileage || 0,
-    _id: car._id || 1111,
+    year: car?.year || 0,
+    make: car?.make || '',
+    model: car?.model || '',
+    type: car?.type || '',
+    img: car?.img || '',
+    description: car?.description || '',
+    fuelConsumption: car?.fuelConsumption || '',
+    engineSize: car?.engineSize || '',
+    accessories: car?.accessories.join(', ') || '', // []
+    functionalities: car?.functionalities.join(', ') || '', // []
+    rentalPrice: car?.rentalPrice || '$10',
+    rentalCompany: car?.rentalCompany || '',
+    address: car?.address || '',
+    rentalConditions: car?.rentalConditions.replaceAll('\n', ', ') || '',
+    mileage: car?.mileage || 0,
   };
 
   const formik = useFormik({
@@ -54,18 +57,23 @@ const CarForm = () => {
         }
 
         if (data.rentalConditions) {
-          data.rentalConditions = data.rentalConditions.replaceAll(',', '\n');
+          data.rentalConditions = data.rentalConditions.replaceAll(', ', '\n');
         }
 
         if (data.accessories) {
-          data.accessories = data.accessories.split(',');
+          data.accessories = data.accessories.split(', ');
         }
 
         if (data.functionalities) {
-          data.functionalities = data.functionalities.split(',');
+          data.functionalities = data.functionalities.split(', ');
         }
 
-        await updateRentCar(data).unwrap();
+        if (pathname === '/service/add_new_car') {
+          await createNewCar(data).unwrap();
+        } else {
+          await updateRentCar(car?._id, data).unwrap();
+        }
+
         navigate('/service');
       } catch (error) {
         console.log('ERROR: ', error);
@@ -81,8 +89,8 @@ const CarForm = () => {
       setCarPreviewUrl(previewUrl);
       formik.values.img = previewUrl;
     } else {
-      setCarPreviewUrl(car.img);
-      formik.values.img = car.img;
+      setCarPreviewUrl(car?.img);
+      formik.values.img = car?.img;
     }
   };
 
@@ -90,8 +98,8 @@ const CarForm = () => {
     <Form onSubmit={formik.handleSubmit} autocomplete="off">
       <ImageContainer className="full_width">
         <Image
-          src={carPreviewUrl || car.img || noImages}
-          alt={formik.values.description || car.description}
+          src={carPreviewUrl || car?.img || noImages}
+          alt={formik.values.description || car?.description}
         />
         <AddFotoIcon onClick={() => carInputRef.current.click()} />
         <input
@@ -274,7 +282,7 @@ const CarForm = () => {
             name="description"
             type="text"
             onChange={formik.handleChange}
-            value={formik.values.description || car.description}
+            value={formik.values.description || car?.description}
           />
         </InputWrapper>
       </TextareaWrapper>

@@ -11,7 +11,7 @@ const ServiceCarPage = () => {
   return (
     !isFetching && (
       <>
-        <FilterForm setFilterValue={setFilterValue} cars={cars} />
+        <FilterForm setFilterValue={setFilterValue} cars={cars} addCar={true} />
         <CatalogCarList cars={cars} filterValue={filterValue} />
       </>
     )

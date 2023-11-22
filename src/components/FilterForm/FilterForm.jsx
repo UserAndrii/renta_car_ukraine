@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Container,
   CustomInput,
@@ -7,9 +8,12 @@ import {
   Select,
   InputWrapper,
   Button,
+  AddIcon,
 } from './FilterForm.styled';
 
-const FilterForm = ({ setFilterValue, cars }) => {
+const FilterForm = ({ setFilterValue, cars, addCar }) => {
+  const navigate = useNavigate();
+
   const [brand, setBrand] = useState('');
   const [price, setPrice] = useState('');
   const [fromMileage, setFromMileage] = useState('');
@@ -100,6 +104,11 @@ const FilterForm = ({ setFilterValue, cars }) => {
 
       <Button type="submit">Search</Button>
       <Button onClick={handleReset}>Сancel</Button>
+      {addCar && (
+        <Button onClick={() => navigate('/service/add_new_car')}>
+          Add <AddIcon />
+        </Button>
+      )}
     </Container>
   );
 };

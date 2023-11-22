@@ -18,6 +18,7 @@ const CatalogPage = lazy(() => import('pages/CatalogPage'));
 const FavoriteCarsPage = lazy(() => import('pages/FavoriteCarsPage'));
 const ServiceCarPage = lazy(() => import('pages/ServiceCarPage'));
 const EditCarPage = lazy(() => import('pages/EditCarPage'));
+const AddNewCarPage = lazy(() => import('pages/AddNewCarPage'));
 
 function RestrictedRoutes({ component, navigateTo = '/' }) {
   const isLogged = useSelector(selectIsLogged);
@@ -98,6 +99,16 @@ function App() {
             path="/service/edit/:carId"
             element={
               <AdminRoutes component={<EditCarPage />} navigateTo="/catalog" />
+            }
+          />
+
+          <Route
+            path="/service/add_new_car"
+            element={
+              <AdminRoutes
+                component={<AddNewCarPage />}
+                navigateTo="/catalog"
+              />
             }
           />
 
