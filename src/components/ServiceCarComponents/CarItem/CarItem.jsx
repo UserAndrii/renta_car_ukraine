@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { useDeleteRentCarMutation } from 'redux/carsApi';
+
 import {
   DeleteCar,
   EditCar,
@@ -16,7 +18,10 @@ import noImages from '../../../images/no-img.jpg';
 
 const CarItem = ({ car }) => {
   const navigate = useNavigate();
-  const { img, description, make, model, year, rentalPrice, mileage } = car;
+  const [deleteRentCar] = useDeleteRentCarMutation();
+
+  const { img, description, make, model, year, rentalPrice, mileage, _id } =
+    car;
 
   return (
     <Item>
@@ -24,9 +29,9 @@ const CarItem = ({ car }) => {
         <Image src={img || noImages} alt={description} />
         <IconContainer className="box">
           <EditCar
-            onClick={() => navigate(`/service/edit/${car._id}`, { state: car })}
+            onClick={() => navigate(`/service/edit/${_id}`, { state: car })}
           />
-          <DeleteCar />
+          <DeleteCar onClick={() => deleteRentCar(_id)} />
         </IconContainer>
       </ImageContainer>
 

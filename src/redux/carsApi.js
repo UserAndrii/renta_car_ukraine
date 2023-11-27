@@ -2,8 +2,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const carsApi = createApi({
   reducerPath: 'cars',
+
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:8000/cars',
+
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {
@@ -12,9 +14,8 @@ export const carsApi = createApi({
       return headers;
     },
   }),
-  refetchOnMountOrArgChange: true,
-  refetchOnReconnect: false,
-  keepUnusedDataFor: 1,
+
+  tagTypes: ['Cars'],
 
   endpoints: builder => ({
     getCars: builder.query({
@@ -27,6 +28,7 @@ export const carsApi = createApi({
         method: 'POST',
         body: data,
       }),
+      providesTags: ['Cars'],
     }),
 
     updateRentCar: builder.mutation({
@@ -35,6 +37,15 @@ export const carsApi = createApi({
         method: 'PATCH',
         body: data,
       }),
+      providesTags: ['Cars'],
+    }),
+
+    deleteRentCar: builder.mutation({
+      query: id => ({
+        url: `/${id}`,
+        method: 'DELETE',
+      }),
+      providesTags: ['Cars'],
     }),
   }),
 });
@@ -43,4 +54,5 @@ export const {
   useGetCarsQuery,
   useCreateNewCarMutation,
   useUpdateRentCarMutation,
+  useDeleteRentCarMutation,
 } = carsApi;

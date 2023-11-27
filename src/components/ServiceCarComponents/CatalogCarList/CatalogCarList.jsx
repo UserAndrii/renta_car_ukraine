@@ -1,7 +1,7 @@
 import CarItem from '../CarItem';
 import { List } from './CatalogCarList.styled';
 
-const CatalogCarList = ({ cars, filterValue }) => {
+const CatalogCarList = ({ cars, filterValue, refetch }) => {
   function filterCars(cars, filterValue) {
     if (!filterValue) return cars;
 
