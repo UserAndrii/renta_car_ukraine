@@ -2,11 +2,14 @@ import { useRef, useState } from 'react';
 import { useFormik } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import noImages from '../../../images/no-img.jpg';
 import {
   useCreateNewCarMutation,
   useUpdateRentCarMutation,
 } from 'redux/carsApi';
+
+import { getInitialValue } from './getInitialValue';
+import { buildFormData } from './buildFormData';
+
 import {
   AddFotoIcon,
   Btn,
@@ -20,6 +23,7 @@ import {
   Textarea,
   TextareaWrapper,
 } from './CarForm.styled';
+import noImages from '../../../images/no-img.jpg';
 
 const CarForm = () => {
   const navigate = useNavigate();
@@ -30,48 +34,16 @@ const CarForm = () => {
   const [updateRentCar] = useUpdateRentCarMutation();
   const [carPreviewUrl, setCarPreviewUrl] = useState('');
 
-  const initialValues = {
-    year: car?.year || 0,
-    make: car?.make || '',
-    model: car?.model || '',
-    type: car?.type || '',
-    img: car?.img || '',
-    description: car?.description || '',
-    fuelConsumption: car?.fuelConsumption || '',
-    engineSize: car?.engineSize || '',
-    accessories: car?.accessories.join(', ') || '', // []
-    functionalities: car?.functionalities.join(', ') || '', // []
-    rentalPrice: car?.rentalPrice || '$10',
-    rentalCompany: car?.rentalCompany || '',
-    address: car?.address || '',
-    rentalConditions: car?.rentalConditions.replaceAll('\n', ', ') || '',
-    mileage: car?.mileage || 0,
-  };
-
   const formik = useFormik({
-    initialValues: initialValues,
+    initialValues: getInitialValue(car),
     onSubmit: async data => {
       try {
-        if (!data.rentalPrice.includes('$')) {
-          data.rentalPrice = '$'.concat(data.rentalPrice);
-        }
-
-        if (data.rentalConditions) {
-          data.rentalConditions = data.rentalConditions.replaceAll(', ', '\n');
-        }
-
-        if (data.accessories) {
-          data.accessories = data.accessories.split(', ');
-        }
-
-        if (data.functionalities) {
-          data.functionalities = data.functionalities.split(', ');
-        }
+        const formData = buildFormData(data);
 
         if (pathname === '/service/add_new_car') {
-          await createNewCar(data).unwrap();
+          await createNewCar(formData).unwrap();
         } else {
-          await updateRentCar(car?._id, data).unwrap();
+          await updateRentCar({ id: car._id, data: formData }).unwrap();
         }
 
         navigate('/service');
@@ -87,10 +59,10 @@ const CarForm = () => {
     if (file) {
       const previewUrl = URL.createObjectURL(file);
       setCarPreviewUrl(previewUrl);
-      formik.values.img = previewUrl;
+      formik.setFieldValue('img', file);
     } else {
       setCarPreviewUrl(car?.img);
-      formik.values.img = car?.img;
+      formik.setFieldValue('img', car?.img);
     }
   };
 
