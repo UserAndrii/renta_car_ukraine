@@ -3,10 +3,33 @@ import { IoMdAddCircleOutline } from 'react-icons/io';
 
 export const Container = styled.form`
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 18px;
+  padding-top: 30px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 50px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+    align-items: end;
+    padding-top: 100px;
+  }
+`;
+
+export const FormWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   align-items: end;
   gap: 18px;
-  padding-top: 150px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const Label = styled.label`
@@ -20,7 +43,7 @@ export const Label = styled.label`
 `;
 
 export const Select = styled.select`
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.11;
   color: var(--main-text);
@@ -33,7 +56,19 @@ export const Select = styled.select`
 
   padding: 14px 18px;
   margin-top: 8px;
-  height: 48px;
+  width: 274px;
+  height: 44px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    width: 200px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 18px;
+    width: 220px;
+    height: 48px;
+  }
 `;
 
 export const Option = styled.option`
@@ -49,7 +84,7 @@ export const Option = styled.option`
 `;
 
 export const CustomInput = styled.input`
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.11;
 
@@ -58,20 +93,42 @@ export const CustomInput = styled.input`
   border: none;
   outline: none;
 
-  width: 160px;
+  width: 137px;
   margin-top: 8px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    width: 120px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 18px;
+    width: 160px;
+  }
 
   :first-of-type {
     border-top-left-radius: 14px;
     border-bottom-left-radius: 14px;
     border-right: 1px solid rgba(138, 138, 137, 0.2);
-    padding: 14px 5px 14px 73px;
+    padding: 14px 5px 14px 52px;
+    height: 44px;
+
+    @media screen and (min-width: 1200px) {
+      padding: 14px 5px 14px 73px;
+      height: 48px;
+    }
   }
 
   :last-of-type {
     border-top-right-radius: 14px;
     border-bottom-right-radius: 14px;
-    padding: 14px 5px 14px 52px;
+    padding: 14px 5px 14px 35px;
+    height: 44px;
+
+    @media screen and (min-width: 1200px) {
+      padding: 14px 5px 14px 52px;
+      height: 48px;
+    }
   }
 `;
 
@@ -81,26 +138,36 @@ export const InputWrapper = styled.div`
   :before {
     content: 'From:';
     color: var(--main-text);
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 1.11;
 
     position: absolute;
     top: 57%;
-    left: 24px;
+    left: 12px;
     transform: translateY(-50%);
+
+    @media screen and (min-width: 1200px) {
+      font-size: 18px;
+      left: 24px;
+    }
   }
   :after {
     content: 'To:';
     color: var(--main-text);
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 1.11;
 
     position: absolute;
     top: 57%;
-    right: 110px;
+    right: 90px;
     transform: translateY(-50%);
+
+    @media screen and (min-width: 1200px) {
+      font-size: 18px;
+      right: 110px;
+    }
   }
 `;
 
@@ -114,14 +181,19 @@ export const Button = styled.button`
   font-weight: 600;
   line-height: 1.43;
 
-  width: 136px;
-  height: 48px;
+  width: 120px;
+  height: 44px;
 
   cursor: pointer;
   border: none;
   border-radius: 12px;
   background-color: var(--accent);
   transition: background-color var(--transition);
+
+  @media screen and (min-width: 1200px) {
+    width: 136px;
+    height: 48px;
+  }
 
   :hover,
   :focus {
@@ -134,4 +206,12 @@ export const AddIcon = styled(IoMdAddCircleOutline)`
   height: 20px;
   margin-left: 10px;
   color: var(--btn-text);
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
 `;

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'http://localhost:8000/users';
+axios.defaults.baseURL = 'https://renta-car-ukraine-api.onrender.com';
 
 const token = {
   set(token) {

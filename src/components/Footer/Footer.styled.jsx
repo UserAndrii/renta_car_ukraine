@@ -21,7 +21,12 @@ export const IconLink = styled.a`
 export const Copyright = styled.p`
   color: var(--btn-text);
   font-weight: 500;
-  font-size: 22px;
-  line-height: 1.2;
+  font-size: 14px;
+  line-height: 1;
   margin-top: 10px;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 22px;
+    line-height: 1.2;
+  }
 `;

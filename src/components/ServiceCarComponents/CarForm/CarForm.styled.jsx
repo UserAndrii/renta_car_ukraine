@@ -101,6 +101,37 @@ export const Input = styled.input`
   }
 `;
 
+export const Select = styled.select`
+  color: var(--main-text);
+  font-size: 16px;
+  line-height: 1.43;
+
+  min-width: 360px;
+  height: 50px;
+  padding: 12px 16px;
+
+  border-radius: 4px;
+  border: 2px solid rgba(33, 33, 33, 0.2);
+  transition: border var(--transition);
+
+  &:focus,
+  &:hover {
+    border: 2px solid var(--accent);
+    outline: transparent;
+  }
+`;
+
+export const Option = styled.option`
+  position: relative;
+  color: var(--main-text);
+  font-size: 16px;
+  line-height: 1.43;
+
+  :hover {
+    background-color: var(--accent);
+  }
+`;
+
 export const Textarea = styled.textarea`
   color: var(--main-text);
   font-size: 16px;

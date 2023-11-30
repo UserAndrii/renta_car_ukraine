@@ -25,12 +25,15 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     [carsApi.reducerPath]: carsApi.reducer,
   },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
+
+  middleware: getDefaultMiddleware => [
+    ...getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(carsApi.middleware),
+    }),
+    carsApi.middleware,
+  ],
 });
 
 export const persistor = persistStore(store);

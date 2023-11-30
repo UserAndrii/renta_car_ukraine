@@ -2,9 +2,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const carsApi = createApi({
   reducerPath: 'cars',
+  tagTypes: ['Cars'],
 
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:8000/cars',
+    baseUrl: 'https://renta-car-ukraine-api.onrender.com',
 
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
@@ -15,11 +16,14 @@ export const carsApi = createApi({
     },
   }),
 
-  tagTypes: ['Cars'],
+  refetchOnMountOrArgChange: true,
+  refetchOnReconnect: true,
+  keepUnusedDataFor: 300,
 
   endpoints: builder => ({
     getCars: builder.query({
       query: () => '/all',
+      providesTags: ['Cars'],
     }),
 
     createNewCar: builder.mutation({

@@ -4,26 +4,54 @@ import { NavLink } from 'react-router-dom';
 
 export const Container = styled.header`
   position: fixed;
-  width: 1440px;
-  height: 95px;
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 70px;
+
   background-color: var(--accent);
-  padding: 18px 0;
   border-bottom: 1px solid #ddddde;
   z-index: 99;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1200px) {
+    height: 90px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 110px;
+  }
 `;
 
 export const Content = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 export const Logo = styled.p`
   font-weight: 700;
-  font-size: 36px;
+  font-size: 21px;
   line-height: 1.6;
 
   color: var(--btn-text);
+
+  @media screen and (min-width: 1200px) {
+    font-size: 28px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 36px;
+  }
 `;
 
 export const SpanLogo = styled.span`
@@ -36,17 +64,31 @@ export const Nav = styled.nav`
 
 export const List = styled.ul`
   display: flex;
-  gap: 80px;
+  gap: 5px;
+
+  @media screen and (min-width: 1440px) {
+    gap: 30px;
+  }
 `;
 
 export const Item = styled(NavLink)`
   color: var(--btn-text);
 
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.28;
   transition: color var(--transition);
-  padding: 12px 12px;
+  padding: 8px 8px;
+
+  @media screen and (min-width: 1200px) {
+    font-size: 18px;
+    padding: 10px 10px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 21px;
+    padding: 12px 12px;
+  }
 
   &.active {
     border-radius: 12px;
@@ -57,10 +99,5 @@ export const Item = styled(NavLink)`
   :hover,
   :focus {
     color: var(--second-accent);
-  }
-
-  @media screen and (min-width: 768px) {
-    font-size: 22px;
-    line-height: 1.2;
   }
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useDeleteRentCarMutation } from 'redux/carsApi';
+import { carsApi, useDeleteRentCarMutation } from 'redux/carsApi';
 
 import {
   DeleteCar,
@@ -23,6 +23,18 @@ const CarItem = ({ car }) => {
   const { img, description, make, model, year, rentalPrice, mileage, _id } =
     car;
 
+  const handleDeleteCar = async id => {
+    try {
+      await deleteRentCar(id, {
+        onSuccess: () => {
+          carsApi.invalidateQueries('getCars');
+        },
+      });
+    } catch (error) {
+      console.error('Error deleting car:', error);
+    }
+  };
+
   return (
     <Item>
       <ImageContainer>
@@ -31,7 +43,7 @@ const CarItem = ({ car }) => {
           <EditCar
             onClick={() => navigate(`/service/edit/${_id}`, { state: car })}
           />
-          <DeleteCar onClick={() => deleteRentCar(_id)} />
+          <DeleteCar onClick={() => handleDeleteCar(_id)} />
         </IconContainer>
       </ImageContainer>
 

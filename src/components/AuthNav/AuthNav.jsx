@@ -12,10 +12,14 @@ const AuthNav = () => {
         <UserInfo />
       ) : (
         <>
-          <Links to="/login" style={{ marginRight: 10 }}>
-            Log In
-          </Links>
-          <Links to="/register">Sign Up</Links>
+          <li>
+            <Links to="/login" style={{ marginRight: 10 }}>
+              Log In
+            </Links>
+          </li>
+          <li>
+            <Links to="/register">Sign Up</Links>
+          </li>
         </>
       )}
     </AuthWrap>

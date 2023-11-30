@@ -9,6 +9,7 @@ import {
 
 import { getInitialValue } from './getInitialValue';
 import { buildFormData } from './buildFormData';
+import { typeCarList } from './typeList';
 
 import {
   AddFotoIcon,
@@ -20,6 +21,8 @@ import {
   InputGroup,
   InputWrapper,
   Label,
+  Option,
+  Select,
   Textarea,
   TextareaWrapper,
 } from './CarForm.styled';
@@ -33,11 +36,13 @@ const CarForm = () => {
   const [createNewCar] = useCreateNewCarMutation();
   const [updateRentCar] = useUpdateRentCarMutation();
   const [carPreviewUrl, setCarPreviewUrl] = useState('');
+  const [typeList] = useState(typeCarList);
 
   const formik = useFormik({
     initialValues: getInitialValue(car),
     onSubmit: async data => {
       try {
+        console.log(data);
         const formData = buildFormData(data);
 
         if (pathname === '/service/add_new_car') {
@@ -149,13 +154,26 @@ const CarForm = () => {
 
         <InputWrapper>
           <Label htmlFor="type">Type</Label>
-          <Input
+          {/* <Input
             id="type"
             name="type"
             type="text"
             onChange={formik.handleChange}
             value={formik.values.type}
-          />
+          /> */}
+          <Select
+            id="type"
+            name="type"
+            value={formik.values.type}
+            onChange={formik.handleChange}
+          >
+            <Option value="">Enter the text</Option>
+            {typeList?.map((option, index) => (
+              <Option key={index} value={option}>
+                {option}
+              </Option>
+            ))}
+          </Select>
         </InputWrapper>
 
         <InputWrapper>

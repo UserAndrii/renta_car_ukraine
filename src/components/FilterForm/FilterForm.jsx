@@ -9,6 +9,8 @@ import {
   InputWrapper,
   Button,
   AddIcon,
+  ButtonWrapper,
+  FormWrapper,
 } from './FilterForm.styled';
 
 const FilterForm = ({ setFilterValue, cars, addCar }) => {
@@ -46,69 +48,71 @@ const FilterForm = ({ setFilterValue, cars, addCar }) => {
 
   return (
     <Container onSubmit={handleSubmit}>
-      <Label htmlFor="brand">
-        Car brand
-        <Select
-          id="brand"
-          value={brand}
-          onChange={e => setBrand(e.target.value)}
-          style={{ width: 224 }}
-        >
-          <Option value="">Enter the text</Option>
-          {brandList?.map((option, index) => (
-            <Option key={index} value={option}>
-              {option}
-            </Option>
-          ))}
-        </Select>
-      </Label>
+      <FormWrapper>
+        <Label htmlFor="brand">
+          Car brand
+          <Select
+            id="brand"
+            value={brand}
+            onChange={e => setBrand(e.target.value)}
+          >
+            <Option value="">Enter the text</Option>
+            {brandList?.map((option, index) => (
+              <Option key={index} value={option}>
+                {option}
+              </Option>
+            ))}
+          </Select>
+        </Label>
 
-      <Label htmlFor="price">
-        Price/ 1 hour
-        <Select
-          id="price"
-          value={price}
-          onChange={e => setPrice(e.target.value)}
-          style={{ width: 125 }}
-        >
-          <Option value="">To $</Option>
-          {priceList?.map((option, index) => (
-            <Option key={index} value={option}>
-              {option}
-            </Option>
-          ))}
-        </Select>
-      </Label>
+        <Label htmlFor="price">
+          Price/ 1 hour
+          <Select
+            id="price"
+            value={price}
+            onChange={e => setPrice(e.target.value)}
+          >
+            <Option value="">To $</Option>
+            {priceList?.map((option, index) => (
+              <Option key={index} value={option}>
+                {option}
+              </Option>
+            ))}
+          </Select>
+        </Label>
 
-      <Label htmlFor="mileage">
-        Сar mileage / km
-        <InputWrapper>
-          <CustomInput
-            type="number"
-            id="mileage"
-            min="0"
-            max="99999"
-            value={fromMileage}
-            onChange={e => setFromMileage(e.target.value)}
-          />
-          <CustomInput
-            type="number"
-            id="mileageto"
-            min="0"
-            max="99999"
-            value={toMileage}
-            onChange={e => setToMileage(e.target.value)}
-          />
-        </InputWrapper>
-      </Label>
+        <Label htmlFor="mileage">
+          Сar mileage / km
+          <InputWrapper>
+            <CustomInput
+              type="number"
+              id="mileage"
+              min="0"
+              max="99999"
+              value={fromMileage}
+              onChange={e => setFromMileage(e.target.value)}
+            />
+            <CustomInput
+              type="number"
+              id="mileageto"
+              min="0"
+              max="99999"
+              value={toMileage}
+              onChange={e => setToMileage(e.target.value)}
+            />
+          </InputWrapper>
+        </Label>
+      </FormWrapper>
 
-      <Button type="submit">Search</Button>
-      <Button onClick={handleReset}>Сancel</Button>
-      {addCar && (
-        <Button onClick={() => navigate('/service/add_new_car')}>
-          Add <AddIcon />
-        </Button>
-      )}
+      <ButtonWrapper>
+        <Button type="submit">Search</Button>
+        <Button onClick={handleReset}>Сancel</Button>
+        {addCar && (
+          <Button onClick={() => navigate('/service/add_new_car')}>
+            Add <AddIcon />
+          </Button>
+        )}
+      </ButtonWrapper>
     </Container>
   );
 };

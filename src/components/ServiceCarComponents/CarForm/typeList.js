@@ -1,0 +1,15 @@
+export const typeCarList = [
+  'Microcar',
+  'Subcompact Car',
+  'Compact Car',
+  'Mid-size Car',
+  'Full-size Car',
+  'SUV',
+  'Sedan',
+  'Crossover',
+  'Convertible',
+  'Sports Car',
+  'Luxury Car',
+  'Electric Car',
+  'Hybrid Car',
+];
