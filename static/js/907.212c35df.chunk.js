@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkrenta_car_ukraine=self.webpackChunkrenta_car_ukraine||[]).push([[907],{5907:function(e,n,r){r.r(n);var a=r(1349),u=r(3329);n.default=function(){return(0,u.jsx)(a.Z,{})}}}]);
+//# sourceMappingURL=907.212c35df.chunk.js.map
