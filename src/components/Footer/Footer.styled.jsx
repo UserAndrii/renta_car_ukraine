@@ -8,6 +8,12 @@ export const FooterContainer = styled.footer`
   text-align: center;
 `;
 
+export const IconList = styled.ul`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const IconLink = styled.a`
   padding: 10px;
   color: var(--btn-text);
