@@ -4,8 +4,16 @@ import { Link } from 'react-router-dom';
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  padding: 50px 128px;
+  flex-direction: column;
+  justify-content: center;
   gap: 20px;
+  padding: 50px 128px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
 `;
 
 export const TextWrapper = styled.div`
