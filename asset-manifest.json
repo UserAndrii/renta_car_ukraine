@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/renta_car_ukraine/static/css/main.74e358f4.css",
-    "main.js": "/renta_car_ukraine/static/js/main.dcb3b918.js",
+    "main.js": "/renta_car_ukraine/static/js/main.b2cf26f8.js",
     "static/css/75.456eda80.chunk.css": "/renta_car_ukraine/static/css/75.456eda80.chunk.css",
     "static/js/75.f2781354.chunk.js": "/renta_car_ukraine/static/js/75.f2781354.chunk.js",
     "static/js/785.07a18ffb.chunk.js": "/renta_car_ukraine/static/js/785.07a18ffb.chunk.js",
     "static/js/232.e5744d17.chunk.js": "/renta_car_ukraine/static/js/232.e5744d17.chunk.js",
     "static/js/69.c3072867.chunk.js": "/renta_car_ukraine/static/js/69.c3072867.chunk.js",
     "static/js/143.ce1b57a6.chunk.js": "/renta_car_ukraine/static/js/143.ce1b57a6.chunk.js",
-    "static/js/190.73f0644f.chunk.js": "/renta_car_ukraine/static/js/190.73f0644f.chunk.js",
+    "static/js/190.e639a521.chunk.js": "/renta_car_ukraine/static/js/190.e639a521.chunk.js",
     "static/js/259.5953b654.chunk.js": "/renta_car_ukraine/static/js/259.5953b654.chunk.js",
     "static/js/907.212c35df.chunk.js": "/renta_car_ukraine/static/js/907.212c35df.chunk.js",
     "static/js/820.76c30802.chunk.js": "/renta_car_ukraine/static/js/820.76c30802.chunk.js",
@@ -16,7 +16,7 @@
     "static/js/373.6f54d1cd.chunk.js": "/renta_car_ukraine/static/js/373.6f54d1cd.chunk.js",
     "static/js/705.c4219f0b.chunk.js": "/renta_car_ukraine/static/js/705.c4219f0b.chunk.js",
     "static/js/210.d4af3eb0.chunk.js": "/renta_car_ukraine/static/js/210.d4af3eb0.chunk.js",
-    "static/js/318.72b43137.chunk.js": "/renta_car_ukraine/static/js/318.72b43137.chunk.js",
+    "static/js/318.f4315eb3.chunk.js": "/renta_car_ukraine/static/js/318.f4315eb3.chunk.js",
     "static/js/349.1aaa595d.chunk.js": "/renta_car_ukraine/static/js/349.1aaa595d.chunk.js",
     "static/media/wheel.png": "/renta_car_ukraine/static/media/wheel.13c857ebef67aaad1305.png",
     "static/media/kia_hero.png": "/renta_car_ukraine/static/media/kia_hero.aee93f32d9689bd7e445.png",
@@ -35,14 +35,14 @@
     "index.html": "/renta_car_ukraine/index.html",
     "static/media/slick.woff": "/renta_car_ukraine/static/media/slick.295183786cd8a1389865.woff",
     "main.74e358f4.css.map": "/renta_car_ukraine/static/css/main.74e358f4.css.map",
-    "main.dcb3b918.js.map": "/renta_car_ukraine/static/js/main.dcb3b918.js.map",
+    "main.b2cf26f8.js.map": "/renta_car_ukraine/static/js/main.b2cf26f8.js.map",
     "75.456eda80.chunk.css.map": "/renta_car_ukraine/static/css/75.456eda80.chunk.css.map",
     "75.f2781354.chunk.js.map": "/renta_car_ukraine/static/js/75.f2781354.chunk.js.map",
     "785.07a18ffb.chunk.js.map": "/renta_car_ukraine/static/js/785.07a18ffb.chunk.js.map",
     "232.e5744d17.chunk.js.map": "/renta_car_ukraine/static/js/232.e5744d17.chunk.js.map",
     "69.c3072867.chunk.js.map": "/renta_car_ukraine/static/js/69.c3072867.chunk.js.map",
     "143.ce1b57a6.chunk.js.map": "/renta_car_ukraine/static/js/143.ce1b57a6.chunk.js.map",
-    "190.73f0644f.chunk.js.map": "/renta_car_ukraine/static/js/190.73f0644f.chunk.js.map",
+    "190.e639a521.chunk.js.map": "/renta_car_ukraine/static/js/190.e639a521.chunk.js.map",
     "259.5953b654.chunk.js.map": "/renta_car_ukraine/static/js/259.5953b654.chunk.js.map",
     "907.212c35df.chunk.js.map": "/renta_car_ukraine/static/js/907.212c35df.chunk.js.map",
     "820.76c30802.chunk.js.map": "/renta_car_ukraine/static/js/820.76c30802.chunk.js.map",
@@ -50,11 +50,11 @@
     "373.6f54d1cd.chunk.js.map": "/renta_car_ukraine/static/js/373.6f54d1cd.chunk.js.map",
     "705.c4219f0b.chunk.js.map": "/renta_car_ukraine/static/js/705.c4219f0b.chunk.js.map",
     "210.d4af3eb0.chunk.js.map": "/renta_car_ukraine/static/js/210.d4af3eb0.chunk.js.map",
-    "318.72b43137.chunk.js.map": "/renta_car_ukraine/static/js/318.72b43137.chunk.js.map",
+    "318.f4315eb3.chunk.js.map": "/renta_car_ukraine/static/js/318.f4315eb3.chunk.js.map",
     "349.1aaa595d.chunk.js.map": "/renta_car_ukraine/static/js/349.1aaa595d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.74e358f4.css",
-    "static/js/main.dcb3b918.js"
+    "static/js/main.b2cf26f8.js"
   ]
 }
