@@ -6,9 +6,8 @@ export const Container = styled.header`
   position: fixed;
   display: flex;
   align-items: center;
-
-  width: 100%;
   height: 70px;
+  width: 100%;
 
   background-color: var(--accent);
   border-bottom: 1px solid #ddddde;
@@ -23,19 +22,16 @@ export const Container = styled.header`
   }
 
   @media screen and (min-width: 1440px) {
+    width: 1440px;
     height: 110px;
   }
 `;
 
 export const Content = styled.div`
-  display: none;
-
-  @media screen and (min-width: 768px) {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-  }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 `;
 
 export const Logo = styled.p`

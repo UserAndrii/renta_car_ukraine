@@ -9,7 +9,7 @@ const MobileMenu = () => {
   };
 
   return (
-    <div className={`header ${isMenuOpened ? 'menu-opened' : ''}`}>
+    <header className={`header ${isMenuOpened ? 'menu-opened' : ''}`}>
       <div className="header-wrapper">
         <div className="burger-container" onClick={toggleMenu}>
           <div id="burger">
@@ -38,7 +38,7 @@ const MobileMenu = () => {
           <a href="#watch">Administration</a>
         </li>
       </ul>
-    </div>
+    </header>
   );
 };
 

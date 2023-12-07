@@ -18,7 +18,7 @@ export const carsApi = createApi({
 
   refetchOnMountOrArgChange: true,
   refetchOnReconnect: true,
-  keepUnusedDataFor: 300,
+  keepUnusedDataFor: 1,
 
   endpoints: builder => ({
     getCars: builder.query({
@@ -32,7 +32,7 @@ export const carsApi = createApi({
         method: 'POST',
         body: data,
       }),
-      providesTags: ['Cars'],
+      invalidatesTags: ['Cars'],
     }),
 
     updateRentCar: builder.mutation({
@@ -41,7 +41,7 @@ export const carsApi = createApi({
         method: 'PATCH',
         body: data,
       }),
-      providesTags: ['Cars'],
+      invalidatesTags: ['Cars'],
     }),
 
     deleteRentCar: builder.mutation({
@@ -49,7 +49,7 @@ export const carsApi = createApi({
         url: `/${id}`,
         method: 'DELETE',
       }),
-      providesTags: ['Cars'],
+      invalidatesTags: ['Cars'],
     }),
   }),
 });

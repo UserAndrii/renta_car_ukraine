@@ -13,7 +13,7 @@ export const Container = styled.form`
     padding-top: 50px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
     align-items: end;
     padding-top: 100px;
@@ -122,11 +122,11 @@ export const CustomInput = styled.input`
   :last-of-type {
     border-top-right-radius: 14px;
     border-bottom-right-radius: 14px;
-    padding: 14px 5px 14px 35px;
+    padding: 14px 5px 14px 50px;
     height: 44px;
 
-    @media screen and (min-width: 1200px) {
-      padding: 14px 5px 14px 52px;
+    @media screen and (min-width: 768px) {
+      padding: 14px 5px 14px 32px;
       height: 48px;
     }
   }
@@ -214,4 +214,8 @@ export const ButtonWrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: 18px;
+
+  @media screen and (max-width: 767px) {
+    max-width: 274px;
+  }
 `;
