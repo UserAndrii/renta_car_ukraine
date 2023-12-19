@@ -11,6 +11,18 @@ export const Container = styled.div`
 export const Main = styled.main`
   display: flex;
   flex-direction: column;
-  padding-top: 95px;
+  padding-top: 50px;
   flex: 1;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 70px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-top: 90px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-top: 110px;
+  }
 `;

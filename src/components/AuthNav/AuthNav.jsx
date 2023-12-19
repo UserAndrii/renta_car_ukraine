@@ -1,26 +1,18 @@
 import { useSelector } from 'react-redux';
-import { AuthWrap, Links } from './AuthNav.styled';
+import { AuthWrap } from './AuthNav.styled';
 import { selectIsLogged } from 'redux/auth/selectors';
 import UserInfo from 'components/UserInfo';
+import AuthButton from 'components/AuthButton';
 
-const AuthNav = () => {
+const AuthNav = ({ toggleMenu }) => {
   const isLogged = useSelector(selectIsLogged);
 
   return (
     <AuthWrap>
       {isLogged ? (
-        <UserInfo />
+        <UserInfo toggleMenu={toggleMenu} />
       ) : (
-        <>
-          <li>
-            <Links to="/login" style={{ marginRight: 10 }}>
-              Log In
-            </Links>
-          </li>
-          <li>
-            <Links to="/register">Sign Up</Links>
-          </li>
-        </>
+        <AuthButton toggleMenu={toggleMenu} />
       )}
     </AuthWrap>
   );

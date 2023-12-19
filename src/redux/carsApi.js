@@ -18,7 +18,7 @@ export const carsApi = createApi({
 
   refetchOnMountOrArgChange: true,
   refetchOnReconnect: true,
-  keepUnusedDataFor: 1,
+  keepUnusedDataFor: 3000,
 
   endpoints: builder => ({
     getCars: builder.query({

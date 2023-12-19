@@ -6,13 +6,15 @@
 
 .header {
   position: absolute;
-  display: block;
+  display: flex;
+  flex-direction: column;
   top: 0;
   left: 0;
+
   height: 50px;
   width: 100%;
+
   background-color: var(--accent);
-  /* background: rgba(#000, 0.8); */
   overflow: hidden;
   transition: all 0.5s ease-out, background 1s ease-out;
   transition-delay: 0.2s;
@@ -124,7 +126,7 @@ li.menu-item {
   transition: transform 0.5s var(--cubic), opacity 0.6s var(--cubic);
 }
 
-a {
+.item {
   display: block;
   position: relative;
   color: #fff;
@@ -211,4 +213,12 @@ a {
 .menu-opened .icon.icon-bag {
   transform: translateX(75px);
   transition-delay: 0.3s;
+}
+
+.user-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: 50px;
 }

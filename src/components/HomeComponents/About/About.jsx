@@ -26,12 +26,14 @@ function SampleNextArrow(props) {
       style={{
         ...style,
         backgroundColor: '#3470FF',
-        width: 50,
-        height: 50,
-        borderRadius: 16,
+        width: 30,
+        height: 30,
+        borderRadius: 4,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        zIndex: 100,
+        marginRight: '15px',
       }}
       onClick={onClick}
     />
@@ -46,12 +48,14 @@ function SamplePrevArrow(props) {
       style={{
         ...style,
         backgroundColor: '#3470FF',
-        width: 50,
-        height: 50,
-        borderRadius: 16,
+        width: 30,
+        height: 30,
+        borderRadius: 4,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        zIndex: 100,
+        marginLeft: '15px',
       }}
       onClick={onClick}
     />

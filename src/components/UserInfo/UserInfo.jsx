@@ -5,14 +5,20 @@ import { userLogOut } from 'redux/auth/operations';
 
 import { LogOutBtn, Name } from './UserInfo.styled';
 
-const UserInfo = () => {
+const UserInfo = ({ toggleMenu }) => {
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
 
   return (
     <>
       <Name>Hi, {userName}!</Name>
-      <LogOutBtn type="button" onClick={() => dispatch(userLogOut())}>
+      <LogOutBtn
+        type="button"
+        onClick={() => {
+          dispatch(userLogOut());
+          toggleMenu();
+        }}
+      >
         Log Out
       </LogOutBtn>
     </>

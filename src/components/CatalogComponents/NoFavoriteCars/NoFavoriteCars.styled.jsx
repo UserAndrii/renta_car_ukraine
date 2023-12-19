@@ -7,12 +7,13 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-  padding: 50px 128px;
+  padding: 20px 20px;
 
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
     gap: 20px;
+    padding: 50px 128px;
   }
 `;
 
@@ -27,7 +28,7 @@ export const Text = styled.p`
   color: var(--main-text);
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.3;
 `;
 
 export const CatalogLink = styled(Link)`
