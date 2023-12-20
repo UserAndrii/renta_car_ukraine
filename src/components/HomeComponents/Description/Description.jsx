@@ -6,6 +6,7 @@ import {
   Imeges,
   Item,
   List,
+  ListNum,
   Number,
   SecondTitle,
   Text,
@@ -28,13 +29,13 @@ const Description = () => {
         <List>
           <Item>
             <IconWrapper>
-              <BsFillPersonFill className="icon" />
+              <BsFillPersonFill className="icons" />
             </IconWrapper>
             <Text>Age from 21 years</Text>
           </Item>
           <Item>
             <IconWrapper>
-              <RiTreasureMapFill className="icon" />
+              <RiTreasureMapFill className="icons" />
             </IconWrapper>
             <Text>
               Territory of car use Ukraine. It is possible to go abroad
@@ -42,13 +43,13 @@ const Description = () => {
           </Item>
           <Item>
             <IconWrapper>
-              <AiFillCar className="icon" />
+              <AiFillCar className="icons" />
             </IconWrapper>
             <Text>Driving experience from 2 years</Text>
           </Item>
           <Item>
             <IconWrapper>
-              <AiFillWallet className="icon" />
+              <AiFillWallet className="icons" />
             </IconWrapper>
             <Text>
               The deposit for the time of use depends on the class of the car.
@@ -57,7 +58,7 @@ const Description = () => {
           </Item>
           <Item>
             <IconWrapper>
-              <BiSolidTimeFive className="icon" />
+              <BiSolidTimeFive className="icons" />
             </IconWrapper>
             <Text>The minimum rental period is 1 day</Text>
           </Item>
@@ -68,26 +69,26 @@ const Description = () => {
       </Wrapper>
       <SecondTitle>YOU GET</SecondTitle>
       <GetList>
-        <li>
+        <ListNum>
           <Number>01</Number>
           <Text>Cars are fully insured</Text>
-        </li>
-        <li>
+        </ListNum>
+        <ListNum>
           <Number>02</Number>
           <Text>We deliver the car to the address within an hour</Text>
-        </li>
-        <li>
+        </ListNum>
+        <ListNum>
           <Number>03</Number>
           <Text>Delivery of the car in a clean state and with a full tank</Text>
-        </li>
-        <li>
+        </ListNum>
+        <ListNum>
           <Number>04</Number>
           <Text>24/7 online support</Text>
-        </li>
-        <li>
+        </ListNum>
+        <ListNum>
           <Number>05</Number>
           <Text>Help on the way</Text>
-        </li>
+        </ListNum>
       </GetList>
     </Container>
   );
