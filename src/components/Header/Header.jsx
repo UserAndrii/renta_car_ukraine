@@ -39,7 +39,7 @@ const Header = () => {
                   <Item to="/favorites">My favorite cars</Item>
                 </li>
               )}
-              {isAdmin && (
+              {isAdmin && isLogged && (
                 <li>
                   <Item to="/service">Administration</Item>
                 </li>

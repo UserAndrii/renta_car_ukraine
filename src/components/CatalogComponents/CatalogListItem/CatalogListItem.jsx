@@ -22,7 +22,7 @@ const CatalogListItem = ({ car, favoriteCars, toggleFavorite }) => {
   const isLogged = useSelector(selectIsLogged);
 
   const {
-    id,
+    _id,
     img,
     address,
     description,
@@ -45,15 +45,15 @@ const CatalogListItem = ({ car, favoriteCars, toggleFavorite }) => {
   return (
     <>
       <Item>
-        {favoriteCars.includes(id) ? (
+        {favoriteCars.includes(_id) ? (
           <AiFillHeart
             className={isLogged ? 'heart heart-active' : 'heard none'}
-            onClick={() => toggleFavorite(id)}
+            onClick={() => toggleFavorite(_id)}
           />
         ) : (
           <AiOutlineHeart
             className={isLogged ? 'heart' : 'heard none'}
-            onClick={() => toggleFavorite(id)}
+            onClick={() => toggleFavorite(_id)}
           />
         )}
 

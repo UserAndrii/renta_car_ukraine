@@ -36,7 +36,7 @@ function AdminRoutes({ component, navigateTo = '/' }) {
   const isLogged = useSelector(selectIsLogged);
   const isAdmin = useSelector(selectIsAdmin);
 
-  return isLogged && !isAdmin ? <Navigate to={navigateTo} /> : component;
+  return !isLogged && !isAdmin ? <Navigate to={navigateTo} /> : component;
 }
 
 function App() {

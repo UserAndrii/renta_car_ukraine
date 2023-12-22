@@ -10,9 +10,7 @@ export const Container = styled.div`
   padding: 20px 20px;
 
   @media screen and (min-width: 768px) {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    flex-direction: row;
     padding: 50px 128px;
   }
 `;
@@ -22,6 +20,10 @@ export const TextWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 15px;
+
+  @media screen and (max-width: 767px) {
+    max-width: 320px;
+  }
 `;
 
 export const Text = styled.p`

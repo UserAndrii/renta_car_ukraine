@@ -2,14 +2,20 @@ import styled from '@emotion/styled';
 import { MdAddAPhoto } from 'react-icons/md';
 
 export const Form = styled.form`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
-  padding: 128px 50px;
+  padding: 20px 20px;
 
-  .full_width {
-    grid-column: span 2;
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 128px 50px;
+
+    .full_width {
+      grid-column: span 2;
+    }
   }
 `;
 
@@ -21,11 +27,16 @@ export const ImageContainer = styled.div`
 
   border-radius: 14px;
   overflow: hidden;
+  width: 280px;
+  height: 180px;
 
-  width: 800px;
-  height: 320px;
   margin: 0 auto;
   background-color: aliceblue;
+
+  @media screen and (min-width: 768px) {
+    width: 800px;
+    height: 320px;
+  }
 `;
 
 export const AddFotoIcon = styled(MdAddAPhoto)`
@@ -33,11 +44,16 @@ export const AddFotoIcon = styled(MdAddAPhoto)`
 
   top: 20px;
   right: 20px;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 
   cursor: pointer;
   color: var(--accent);
+
+  @media screen and (min-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 export const Image = styled.img`
@@ -65,8 +81,15 @@ export const InputWrapper = styled.div`
 
 export const TextareaWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  gap: 10px;
   width: 100%;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const Label = styled.label`
@@ -86,7 +109,7 @@ export const Input = styled.input`
   font-size: 16px;
   line-height: 1.43;
 
-  min-width: 360px;
+  min-width: 280px;
   height: 50px;
   padding: 12px 16px;
 
@@ -99,6 +122,14 @@ export const Input = styled.input`
     border: 2px solid var(--accent);
     outline: transparent;
   }
+
+  @media screen and (max-width: 767px) {
+    max-width: 280px;
+  }
+
+  @media screen and (min-width: 768px) {
+    min-width: 360px;
+  }
 `;
 
 export const Select = styled.select`
@@ -106,7 +137,6 @@ export const Select = styled.select`
   font-size: 16px;
   line-height: 1.43;
 
-  min-width: 360px;
   height: 50px;
   padding: 12px 16px;
 
@@ -118,6 +148,14 @@ export const Select = styled.select`
   &:hover {
     border: 2px solid var(--accent);
     outline: transparent;
+  }
+
+  @media screen and (max-width: 767px) {
+    max-width: 280px;
+  }
+
+  @media screen and (min-width: 768px) {
+    min-width: 360px;
   }
 `;
 
@@ -138,8 +176,6 @@ export const Textarea = styled.textarea`
   line-height: 1.43;
 
   resize: none;
-  height: 160px;
-  min-width: 360px;
   padding: 12px 16px;
 
   border-radius: 4px;
@@ -151,6 +187,21 @@ export const Textarea = styled.textarea`
     border: 2px solid var(--accent);
     outline: transparent;
   }
+
+  @media screen and (max-width: 767px) {
+    width: 280px;
+    height: 120px;
+  }
+
+  @media screen and (min-width: 768px) {
+    min-width: 360px;
+    height: 160px;
+  }
+`;
+
+export const BtnWrapper = styled.div`
+  display: flex;
+  gap: 20px;
 `;
 
 export const Btn = styled.button`
@@ -159,8 +210,9 @@ export const Btn = styled.button`
   font-weight: 600;
   line-height: 1.43;
 
+  min-width: 120px;
   height: 50px;
-  margin-top: 110px;
+  margin-top: 30px;
   cursor: pointer;
 
   border: none;
@@ -171,5 +223,9 @@ export const Btn = styled.button`
 
   :hover {
     background: var(--hover);
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: 110px;
   }
 `;

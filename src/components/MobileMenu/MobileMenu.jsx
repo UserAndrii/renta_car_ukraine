@@ -1,10 +1,14 @@
 import './MobileMenu.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectIsAdmin, selectIsLogged } from 'redux/auth/selectors';
 
 import AuthNav from 'components/AuthNav';
 
 const MobileMenu = () => {
+  const isLogged = useSelector(selectIsLogged);
+  const isAdmin = useSelector(selectIsAdmin);
   const [isMenuOpened, setMenuOpened] = useState(false);
 
   const toggleMenu = () => {
@@ -48,11 +52,13 @@ const MobileMenu = () => {
             My favorite cars
           </Link>
         </li>
-        <li className="menu-item">
-          <Link className="item" to="/service" onClick={toggleMenu}>
-            Administration
-          </Link>
-        </li>
+        {isAdmin && isLogged && (
+          <li className="menu-item">
+            <Link className="item" to="/service" onClick={toggleMenu}>
+              Administration
+            </Link>
+          </li>
+        )}
       </ul>
 
       <div className="user-info">

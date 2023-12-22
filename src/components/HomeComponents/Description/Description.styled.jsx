@@ -137,11 +137,11 @@ export const GetList = styled.ul`
 
 export const ListNum = styled.li`
   @media screen and (max-width: 767px) {
-    :nth-child(even) {
+    :nth-of-type(even) {
       margin-left: 50%;
     }
 
-    :nth-child(odd) {
+    :nth-of-type(odd) {
       margin-right: 50%;
     }
   }

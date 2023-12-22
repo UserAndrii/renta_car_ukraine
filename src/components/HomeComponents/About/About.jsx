@@ -32,7 +32,7 @@ function SampleNextArrow(props) {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        zIndex: 100,
+        zIndex: 98,
         marginRight: '15px',
       }}
       onClick={onClick}
@@ -54,7 +54,7 @@ function SamplePrevArrow(props) {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        zIndex: 100,
+        zIndex: 98,
         marginLeft: '15px',
       }}
       onClick={onClick}

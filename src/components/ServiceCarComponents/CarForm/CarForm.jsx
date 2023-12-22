@@ -14,6 +14,7 @@ import { typeCarList } from './typeList';
 import {
   AddFotoIcon,
   Btn,
+  BtnWrapper,
   Form,
   Image,
   ImageContainer,
@@ -154,13 +155,6 @@ const CarForm = () => {
 
         <InputWrapper>
           <Label htmlFor="type">Type</Label>
-          {/* <Input
-            id="type"
-            name="type"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.type}
-          /> */}
           <Select
             id="type"
             name="type"
@@ -277,10 +271,12 @@ const CarForm = () => {
         </InputWrapper>
       </TextareaWrapper>
 
-      <Btn type="submit">Submit</Btn>
-      <Btn type="button" onClick={() => navigate('/service')}>
-        Cancel
-      </Btn>
+      <BtnWrapper>
+        <Btn type="submit">Submit</Btn>
+        <Btn type="button" onClick={() => navigate('/service')}>
+          Cancel
+        </Btn>
+      </BtnWrapper>
     </Form>
   );
 };
