@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://renta-car-ukraine-api.onrender.com/users';
+// axios.defaults.baseURL = 'https://renta-car-ukraine-api.onrender.com/users';
+axios.defaults.baseURL = 'http://localhost:8000/users';
 
 const token = {
   set(token) {
@@ -68,6 +69,18 @@ export const userLogOut = createAsyncThunk(
     try {
       const { data } = await axios.post('/logout', credentials);
       token.set(data.token);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const toggleUsersFavoriteCar = createAsyncThunk(
+  'auth/favoriteCars',
+  async (id, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post('/favorite', id);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

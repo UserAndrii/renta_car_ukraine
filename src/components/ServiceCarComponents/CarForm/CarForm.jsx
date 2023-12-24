@@ -43,7 +43,6 @@ const CarForm = () => {
     initialValues: getInitialValue(car),
     onSubmit: async data => {
       try {
-        console.log(data);
         const formData = buildFormData(data);
 
         if (pathname === '/service/add_new_car') {

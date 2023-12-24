@@ -34,6 +34,11 @@ export const ImageContainer = styled.div`
   background-color: aliceblue;
 
   @media screen and (min-width: 768px) {
+    width: 640px;
+    height: 300px;
+  }
+
+  @media screen and (min-width: 1200px) {
     width: 800px;
     height: 320px;
   }
@@ -88,7 +93,7 @@ export const TextareaWrapper = styled.div`
   width: 100%;
 
   @media screen and (min-width: 768px) {
-    flex-direction: row;
+    /* flex-direction: row; */
   }
 `;
 
@@ -100,7 +105,13 @@ export const Label = styled.label`
 
   & > span {
     color: var(--main-text);
-    font-size: 12px;
+    font-size: 9px;
+  }
+
+  @media screen and (min-width: 768px) {
+    & > span {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -128,7 +139,7 @@ export const Input = styled.input`
   }
 
   @media screen and (min-width: 768px) {
-    min-width: 360px;
+    width: 320px;
   }
 `;
 
@@ -155,7 +166,7 @@ export const Select = styled.select`
   }
 
   @media screen and (min-width: 768px) {
-    min-width: 360px;
+    width: 320px;
   }
 `;
 
@@ -194,7 +205,7 @@ export const Textarea = styled.textarea`
   }
 
   @media screen and (min-width: 768px) {
-    min-width: 360px;
+    width: 320px;
     height: 160px;
   }
 `;

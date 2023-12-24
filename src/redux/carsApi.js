@@ -5,7 +5,8 @@ export const carsApi = createApi({
   tagTypes: ['Cars'],
 
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://renta-car-ukraine-api.onrender.com/cars',
+    // baseUrl: 'https://renta-car-ukraine-api.onrender.com/cars',
+    baseUrl: 'http://localhost:8000/cars',
 
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
@@ -22,7 +23,7 @@ export const carsApi = createApi({
 
   endpoints: builder => ({
     getCars: builder.query({
-      query: () => '/all',
+      query: (page = 1, limit = 100) => `/all?page=${page}&limit=${limit}`,
       providesTags: ['Cars'],
     }),
 

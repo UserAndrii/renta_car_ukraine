@@ -1,4 +1,9 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+
+import { selectFavoriteCars, selectIsLogged } from 'redux/auth/selectors';
+import { toggleUsersFavoriteCar } from 'redux/auth/operations';
 import {
   Button,
   Description,
@@ -10,16 +15,15 @@ import {
   NameWrapper,
 } from './CatalogListItem.styled';
 
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-
 import Modal from 'components/Modal';
 import ModalContent from 'components/ModalContent';
 import noImages from '../../../images/no-img.jpg';
-import { useSelector } from 'react-redux';
-import { selectIsLogged } from 'redux/auth/selectors';
 
-const CatalogListItem = ({ car, favoriteCars, toggleFavorite }) => {
+const CatalogListItem = ({ car }) => {
+  const dispatch = useDispatch();
+
   const isLogged = useSelector(selectIsLogged);
+  const favoriteCars = useSelector(selectFavoriteCars);
 
   const {
     _id,
@@ -45,15 +49,15 @@ const CatalogListItem = ({ car, favoriteCars, toggleFavorite }) => {
   return (
     <>
       <Item>
-        {favoriteCars.includes(_id) ? (
+        {favoriteCars?.includes(_id) ? (
           <AiFillHeart
             className={isLogged ? 'heart heart-active' : 'heard none'}
-            onClick={() => toggleFavorite(_id)}
+            onClick={() => dispatch(toggleUsersFavoriteCar({ id: _id }))}
           />
         ) : (
           <AiOutlineHeart
             className={isLogged ? 'heart' : 'heard none'}
-            onClick={() => toggleFavorite(_id)}
+            onClick={() => dispatch(toggleUsersFavoriteCar({ id: _id }))}
           />
         )}
 

@@ -114,7 +114,7 @@ export const CustomInput = styled.input`
     height: 44px;
 
     @media screen and (min-width: 1200px) {
-      padding: 14px 5px 14px 73px;
+      padding: 14px 5px 14px 75px;
       height: 48px;
     }
   }
@@ -122,11 +122,11 @@ export const CustomInput = styled.input`
   :last-of-type {
     border-top-right-radius: 14px;
     border-bottom-right-radius: 14px;
-    padding: 14px 5px 14px 50px;
+    padding: 14px 5px 14px 32px;
     height: 44px;
 
-    @media screen and (min-width: 768px) {
-      padding: 14px 5px 14px 32px;
+    @media screen and (min-width: 1200px) {
+      padding: 14px 5px 14px 55px;
       height: 48px;
     }
   }

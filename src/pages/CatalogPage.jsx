@@ -6,7 +6,6 @@ import FilterForm from 'components/FilterForm';
 
 const CatalogPage = () => {
   const { data: cars, isFetching } = useGetCarsQuery();
-
   const [filterValue, setFilterValue] = useState(null);
 
   return (

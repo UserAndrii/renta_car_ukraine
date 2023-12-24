@@ -5,6 +5,7 @@ import {
   userRegistration,
   fetchCurrentUser,
   userLogOut,
+  toggleUsersFavoriteCar,
 } from './operations';
 
 const authSlice = createSlice({
@@ -13,6 +14,8 @@ const authSlice = createSlice({
     user: { userName: null, email: null },
     admin: false,
     token: null,
+    favoriteCars: [],
+
     isLogged: false,
     isRefreshing: false,
 
@@ -62,6 +65,7 @@ const authSlice = createSlice({
       .addCase(fetchCurrentUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.admin = action.payload.admin;
+        state.favoriteCars = action.payload.favoriteCars;
         state.isLogged = true;
         state.isRefreshing = false;
 
@@ -81,11 +85,24 @@ const authSlice = createSlice({
         state.user = { userName: null, email: null };
         state.admin = false;
         state.token = null;
+        state.favoriteCars = [];
         state.isLogged = false;
         state.isLoading = false;
         state.error = null;
       })
       .addCase(userLogOut.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(toggleUsersFavoriteCar.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(toggleUsersFavoriteCar.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.favoriteCars = action.payload.favoriteCars;
+      })
+      .addCase(toggleUsersFavoriteCar.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

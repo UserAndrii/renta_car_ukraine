@@ -8,9 +8,8 @@ import NoFavoriteCars from '../NoFavoriteCars';
 
 const CatalogList = ({ cars, filterValue }) => {
   const elementsOnThePage = 8;
-  // const { pathname } = useLocation();
-
   const [currentIndex, setCurrentIndex] = useState(elementsOnThePage);
+
   const [favoriteCars, setFavoriteCars] = useState(
     JSON.parse(localStorage.getItem('favoriteCars')) || []
   );
@@ -41,52 +40,6 @@ const CatalogList = ({ cars, filterValue }) => {
 
   const filteredCars = filterCars(cars, filterValue);
 
-  console.log(currentIndex);
-
-  // const renderCars = (start, end) => {
-  //   switch (pathname) {
-  //     case '/catalog':
-  //       return filteredCars
-  //         ?.slice(start, end)
-  //         .map(car => (
-  //           <CatalogListItem
-  //             car={car}
-  //             key={car._id}
-  //             favoriteCars={favoriteCars}
-  //             toggleFavorite={toggleFavorite}
-  //           />
-  //         ));
-
-  //     case '/favorites':
-  //       return filteredCars
-  //         ?.filter(car => favoriteCars.includes(car._id))
-  //         .slice(start, end)
-  //         .map(car => (
-  //           <CatalogListItem
-  //             car={car}
-  //             key={car._id}
-  //             favoriteCars={favoriteCars}
-  //             toggleFavorite={toggleFavorite}
-  //           />
-  //         ));
-
-  //     case '/service':
-  //       return filteredCars
-  //         ?.slice(start, end)
-  //         .map(car => (
-  //           <CatalogListItem
-  //             car={car}
-  //             key={car._id}
-  //             favoriteCars={favoriteCars}
-  //             toggleFavorite={toggleFavorite}
-  //           />
-  //         ));
-
-  //     default:
-  //       return;
-  //   }
-  // };
-
   const toggleFavorite = id => {
     if (favoriteCars.includes(id)) {
       setFavoriteCars(prev => prev.toSpliced(favoriteCars.indexOf(id), 1));
@@ -95,13 +48,11 @@ const CatalogList = ({ cars, filterValue }) => {
     }
   };
 
-  // const renderedCars = renderCars(0, currentIndex);
-
   return (
     <>
       {filteredCars?.length > 0 ? (
         <List>
-          {filteredCars.map(car => (
+          {filteredCars.slice(0, currentIndex).map(car => (
             <CatalogListItem
               car={car}
               key={car._id}
@@ -114,11 +65,12 @@ const CatalogList = ({ cars, filterValue }) => {
         <NoFavoriteCars />
       )}
 
-      <LoadMoreBtn
-        loadMore={() =>
-          setCurrentIndex(prevIndex => prevIndex + elementsOnThePage)
-        }
-      />
+      {filteredCars.length > elementsOnThePage &&
+        currentIndex < filteredCars.length && (
+          <LoadMoreBtn
+            loadMore={() => setCurrentIndex(prev => prev + elementsOnThePage)}
+          />
+        )}
     </>
   );
 };

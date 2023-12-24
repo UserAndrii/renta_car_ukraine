@@ -21,7 +21,10 @@ const FilterForm = ({ setFilterValue, cars, addCar }) => {
   const [fromMileage, setFromMileage] = useState('');
   const [toMileage, setToMileage] = useState('');
 
-  const brandList = Array.from(new Set(cars?.map(car => car.make))).sort();
+  const brandList = Array.from(
+    new Set(cars?.map(car => car.make.toUpperCase()))
+  ).sort();
+
   const priceList = cars
     ?.map(car => car.rentalPrice.slice(1))
     .sort((a, b) => a - b)
@@ -56,7 +59,7 @@ const FilterForm = ({ setFilterValue, cars, addCar }) => {
             value={brand}
             onChange={e => setBrand(e.target.value)}
           >
-            <Option value="">Enter the text</Option>
+            <Option value="">All</Option>
             {brandList?.map((option, index) => (
               <Option key={index} value={option}>
                 {option}
