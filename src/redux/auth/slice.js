@@ -31,6 +31,7 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.admin = action.payload.admin;
         state.token = action.payload.token;
+        state.favoriteCars = action.payload.favoriteCars;
         state.isLogged = true;
 
         state.isLoading = false;
@@ -48,6 +49,7 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.admin = action.payload.admin;
         state.token = action.payload.token;
+        state.favoriteCars = action.payload.favoriteCars;
         state.isLogged = true;
 
         state.isLoading = false;

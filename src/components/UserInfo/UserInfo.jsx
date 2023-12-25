@@ -16,7 +16,9 @@ const UserInfo = ({ toggleMenu }) => {
         type="button"
         onClick={() => {
           dispatch(userLogOut());
-          toggleMenu();
+          if (toggleMenu && typeof toggleMenu === 'function') {
+            toggleMenu();
+          }
         }}
       >
         Log Out

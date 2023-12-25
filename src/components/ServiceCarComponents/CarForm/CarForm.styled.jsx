@@ -82,6 +82,11 @@ export const InputGroup = styled.div`
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+
+  @media screen and (max-width: 767px) {
+    align-items: center;
+  }
 `;
 
 export const TextareaWrapper = styled.div`
@@ -89,11 +94,21 @@ export const TextareaWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
-    /* flex-direction: row; */
+    & > div > input {
+      width: 100%;
+    }
+
+    & > div > textarea {
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
   }
 `;
 
@@ -139,7 +154,7 @@ export const Input = styled.input`
   }
 
   @media screen and (min-width: 768px) {
-    width: 320px;
+    min-width: 320px;
   }
 `;
 
@@ -162,11 +177,11 @@ export const Select = styled.select`
   }
 
   @media screen and (max-width: 767px) {
-    max-width: 280px;
+    width: 280px;
   }
 
   @media screen and (min-width: 768px) {
-    width: 320px;
+    min-width: 320px;
   }
 `;
 
@@ -213,6 +228,11 @@ export const Textarea = styled.textarea`
 export const BtnWrapper = styled.div`
   display: flex;
   gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    grid-column: span 2;
+    justify-content: center;
+  }
 `;
 
 export const Btn = styled.button`
