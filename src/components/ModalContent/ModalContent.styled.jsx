@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Image = styled.img`
-  width: 461px;
+  width: 260px;
   height: 248px;
   object-fit: cover;
   border-radius: 14px;
@@ -13,6 +13,10 @@ export const Image = styled.img`
       rgba(18, 20, 23, 0) 41.07%
     ),
     #f3f3f2;
+
+  @media screen and (min-width: 768px) {
+    width: 461px;
+  }
 `;
 
 export const CarModel = styled.p`
@@ -31,8 +35,12 @@ export const CarModel = styled.p`
 
 export const Description = styled.p`
   color: rgba(18, 20, 23, 0.5);
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1.5;
+
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 export const Line = styled.span`
@@ -43,9 +51,13 @@ export const Line = styled.span`
 export const Text = styled.span`
   display: inline-block;
   color: var(--main-text);
-  font-size: 14px;
+  font-size: 10px;
   line-height: 1.43;
   margin-top: 14px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 export const Subtitle = styled.p`
@@ -71,12 +83,16 @@ export const Item = styled.li`
 
 export const Value = styled.p`
   color: #363535;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1.5;
   letter-spacing: -0.24px;
 
   & > span {
     color: var(--accent);
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
   }
 `;
 
@@ -91,4 +107,8 @@ export const RentalBtn = styled.a`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.43;
+
+  @media screen and (min-width: 768px) {
+    /* font-size: 12px; */
+  }
 `;
