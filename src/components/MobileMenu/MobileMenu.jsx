@@ -47,11 +47,13 @@ const MobileMenu = () => {
             Cars Park
           </Link>
         </li>
-        <li className="menu-item">
-          <Link className="item" to="/favorites" onClick={toggleMenu}>
-            My favorite cars
-          </Link>
-        </li>
+        {isLogged && (
+          <li className="menu-item">
+            <Link className="item" to="/favorites" onClick={toggleMenu}>
+              My favorite cars
+            </Link>
+          </li>
+        )}
         {isAdmin && isLogged && (
           <li className="menu-item">
             <Link className="item" to="/service" onClick={toggleMenu}>
