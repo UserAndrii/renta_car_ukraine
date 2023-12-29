@@ -16,7 +16,7 @@ export const Overlay = styled.div`
   background-color: rgba(18, 20, 23, 0.5);
   z-index: 999;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1200px) {
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -44,13 +44,15 @@ export const ModalWindow = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    width: 541px;
+    padding: 40px;
+  }
+
+  @media screen and (min-width: 1200px) {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    width: 541px;
-    padding: 40px;
   }
 `;
 

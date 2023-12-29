@@ -101,6 +101,10 @@ export const PasswordlIconVisible = styled(AiFillUnlock)`
 `;
 
 export const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   color: var(--btn-text);
   font-weight: 500;
   font-size: 22px;

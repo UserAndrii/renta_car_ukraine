@@ -5,13 +5,14 @@ import { Container, Main } from './Layout.styled';
 
 import Header from '../Header';
 import Footer from '../Footer';
+import Loader from 'components/Loader';
 
 const Layout = () => {
   return (
     <Container>
       <Header />
       <Main>
-        <Suspense fallback={'Loading...'}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </Main>

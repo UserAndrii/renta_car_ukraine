@@ -1,15 +1,20 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { useLocation } from 'react-router-dom';
+import { Hourglass } from 'react-loader-spinner';
+import { selectIsLoading } from 'redux/auth/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+
+import TextInput from '../TextInput';
 import EmailInput from '../EmailInput';
 import PasswordInput from '../PasswordInput';
-import TextInput from '../TextInput';
-import { Button, Form, InAuth } from './FormComponent.styled';
-import { useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
+import { Button, Form, InAuth } from './FormComponent.styled';
 import { userLogin, userRegistration } from 'redux/auth/operations';
 
 const FormComponent = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
   const { pathname } = useLocation();
 
   const [userName, setUserName] = useState('');
@@ -20,9 +25,21 @@ const FormComponent = () => {
     e.preventDefault();
 
     if (pathname === '/register') {
+      console.log(!userName || !email || !password);
+      if (!userName || !email || !password) {
+        toast.error(`Please fill in all fields, it's required!`, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        return;
+      }
+
       dispatch(userRegistration({ userName, email, password })).then(
         ({ meta: { rejectedWithValue } }) => {
-          if (rejectedWithValue) console.log('error');
+          if (rejectedWithValue) {
+            toast.error('Oops, something went wrong! Enter a valid email.', {
+              position: toast.POSITION.TOP_RIGHT,
+            });
+          }
         }
       );
       return;
@@ -30,19 +47,32 @@ const FormComponent = () => {
 
     dispatch(userLogin({ email, password })).then(
       ({ meta: { rejectedWithValue } }) => {
-        if (rejectedWithValue) console.log('error');
+        if (rejectedWithValue) {
+          toast.error('Oops, the login or password is incorrect!', {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
       }
     );
-
-    e.target.reset();
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} autoComplete="false">
       {pathname === '/register' && <TextInput setText={setUserName} />}
       <EmailInput setEmail={setEmail} />
       <PasswordInput setPassword={setPassword} />
-      <Button type="submit">Submit</Button>
+      <Button type="submit">
+        Submit{' '}
+        <Hourglass
+          visible={isLoading ? true : false}
+          height="20"
+          width="20"
+          ariaLabel="hourglass-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          colors={['#306cce', '#72a1ed']}
+        />
+      </Button>
       <InAuth to={pathname === '/register' ? '/login' : '/register'}>
         {pathname !== '/register'
           ? "Don't have an account? Sign Up"

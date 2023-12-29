@@ -65,7 +65,7 @@ const CatalogList = ({ cars, filterValue }) => {
         <NoFavoriteCars />
       )}
 
-      {filteredCars.length > elementsOnThePage &&
+      {filteredCars?.length > elementsOnThePage &&
         currentIndex < filteredCars.length && (
           <LoadMoreBtn
             loadMore={() => setCurrentIndex(prev => prev + elementsOnThePage)}

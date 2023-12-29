@@ -2,7 +2,11 @@ import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 import Layout from './Layout';
+import Loader from './Loader';
 
 import { fetchCurrentUser } from 'redux/auth/operations';
 import {
@@ -47,8 +51,8 @@ function App() {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  return (
-    !isRefreshing && (
+  return !isRefreshing ? (
+    <>
       <Routes>
         <Route exact path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -115,7 +119,10 @@ function App() {
           <Route path="*" element={<HomePage />} />
         </Route>
       </Routes>
-    )
+      <ToastContainer />
+    </>
+  ) : (
+    <Loader />
   );
 }
 
