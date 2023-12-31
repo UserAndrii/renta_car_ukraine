@@ -24,7 +24,7 @@ const VerifyEmail = () => {
         if (rejectedWithValue) {
           setIsErrorToken(true);
         }
-        setIsErrorToken(true);
+        setIsErrorToken(false);
       }
     );
   }, [dispatch, verifyToken]);
