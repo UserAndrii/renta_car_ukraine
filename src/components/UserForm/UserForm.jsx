@@ -53,7 +53,6 @@ const UserForm = () => {
             />
             <Text>
               Your email is {verifiedEmail ? 'verified' : 'not verified'}
-              verified/not verified
             </Text>
           </InputWrapper>
         </Wrapper>
