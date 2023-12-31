@@ -2,7 +2,6 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://renta-car-ukraine-api.onrender.com/users';
-// axios.defaults.baseURL = 'http://localhost:8000/users';
 
 const token = {
   set(token) {
@@ -84,6 +83,19 @@ export const toggleUsersFavoriteCar = createAsyncThunk(
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getVerifyEmailUser = createAsyncThunk(
+  'auth/getVerifyEmail',
+  async (verifyToken, thunkAPI) => {
+    try {
+      const response = await axios.get(`/verify/${verifyToken}`);
+
+      return response.data.verify;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

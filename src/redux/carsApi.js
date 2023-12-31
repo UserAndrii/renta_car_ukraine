@@ -6,7 +6,6 @@ export const carsApi = createApi({
 
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://renta-car-ukraine-api.onrender.com/cars',
-    // baseUrl: 'http://localhost:8000/cars',
 
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;

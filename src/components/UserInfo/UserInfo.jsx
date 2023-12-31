@@ -4,6 +4,7 @@ import { selectUserName } from 'redux/auth/selectors';
 import { userLogOut } from 'redux/auth/operations';
 
 import { LogOutBtn, Name } from './UserInfo.styled';
+import { Link } from 'react-router-dom';
 
 const UserInfo = ({ toggleMenu }) => {
   const dispatch = useDispatch();
@@ -11,7 +12,17 @@ const UserInfo = ({ toggleMenu }) => {
 
   return (
     <>
-      <Name>Hi, {userName}!</Name>
+      <Link
+        to="/profile"
+        onClick={() => {
+          if (toggleMenu && typeof toggleMenu === 'function') {
+            toggleMenu();
+          }
+        }}
+      >
+        <Name>Hi, {userName}!</Name>
+      </Link>
+
       <LogOutBtn
         type="button"
         onClick={() => {

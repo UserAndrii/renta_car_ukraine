@@ -28,13 +28,17 @@ const CatalogList = ({ cars, filterValue }) => {
         !brand || car.make.toLowerCase() === brand.toLowerCase();
       const passesPrice =
         !price || parseInt(car.rentalPrice.slice(1)) <= parseInt(price);
-      const passesMileage =
-        !fromMileage ||
-        !toMileage ||
-        (car.mileage >= parseInt(fromMileage) &&
-          car.mileage <= parseInt(toMileage));
+      // const passesMileage =
+      //   !fromMileage ||
+      //   !toMileage ||
+      //   (car.mileage >= parseInt(fromMileage) &&
+      //     car.mileage <= parseInt(toMileage));
+      const passesFromMileage =
+        !fromMileage || car.mileage >= parseInt(fromMileage);
 
-      return passesBrand && passesPrice && passesMileage;
+      const passesToMileage = !toMileage || car.mileage <= parseInt(toMileage);
+
+      return passesBrand && passesPrice && passesFromMileage && passesToMileage;
     });
   }
 

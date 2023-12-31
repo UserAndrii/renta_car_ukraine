@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react';
 import { useFormik } from 'formik';
+import { toast } from 'react-toastify';
+import { useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import {
@@ -47,13 +48,23 @@ const CarForm = () => {
 
         if (pathname === '/service/add_new_car') {
           await createNewCar(formData).unwrap();
+
+          toast.success(`You have successfully added a new car!`, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
         } else {
           await updateRentCar({ id: car._id, data: formData }).unwrap();
+
+          toast.success(`You have successfully edited the car information`, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
         }
 
         navigate('/service');
       } catch (error) {
-        console.log('ERROR: ', error);
+        toast.error(`ERROR: ${error.data.message}`, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       }
     },
   });

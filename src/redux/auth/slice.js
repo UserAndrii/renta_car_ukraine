@@ -6,12 +6,13 @@ import {
   fetchCurrentUser,
   userLogOut,
   toggleUsersFavoriteCar,
+  getVerifyEmailUser,
 } from './operations';
 
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    user: { userName: null, email: null },
+    user: { userName: null, email: null, verify: null },
     admin: false,
     token: null,
     favoriteCars: [],
@@ -84,7 +85,7 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(userLogOut.fulfilled, state => {
-        state.user = { userName: null, email: null };
+        state.user = { userName: null, email: null, verify: null };
         state.admin = false;
         state.token = null;
         state.favoriteCars = [];
@@ -107,6 +108,10 @@ const authSlice = createSlice({
       .addCase(toggleUsersFavoriteCar.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+
+      .addCase(getVerifyEmailUser.fulfilled, (state, action) => {
+        state.user.verify = action.payload;
       });
   },
 });
