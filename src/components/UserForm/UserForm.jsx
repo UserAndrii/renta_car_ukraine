@@ -13,9 +13,11 @@ import {
   BtnWrapper,
 } from './UserForm.styled';
 import Cars from 'images/car-rental.png';
+import { selectVerifiedEmail } from 'redux/auth/selectors';
 
 const UserForm = () => {
   const { userName, email } = useSelector(state => state.auth.user);
+  const verifiedEmail = useSelector(selectVerifiedEmail);
 
   const [name, setName] = useState(userName);
   const [userEmail, setUserEmail] = useState(email);
@@ -49,7 +51,10 @@ const UserForm = () => {
               value={userEmail}
               disabled={disabledInput}
             />
-            <Text>Your email is verified/not verified</Text>
+            <Text>
+              Your email is {verifiedEmail ? 'verified' : 'not verified'}
+              verified/not verified
+            </Text>
           </InputWrapper>
         </Wrapper>
 
