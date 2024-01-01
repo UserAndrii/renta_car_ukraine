@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://renta-car-ukraine-api.onrender.com/users';
@@ -21,6 +22,9 @@ export const userRegistration = createAsyncThunk(
 
       return data;
     } catch (error) {
+      toast.error(error.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       return rejectWithValue(error.message);
     }
   }
@@ -35,6 +39,9 @@ export const userLogin = createAsyncThunk(
 
       return data;
     } catch (error) {
+      toast.error(error.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       return rejectWithValue(error.message);
     }
   }
@@ -57,6 +64,9 @@ export const fetchCurrentUser = createAsyncThunk(
 
       return data;
     } catch (error) {
+      toast.error(error.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -70,6 +80,25 @@ export const userLogOut = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
+      toast.error(error.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUser = createAsyncThunk(
+  'auth/updateUser',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const response = await axios.patch('/update', credentials);
+      console.log(response.data.user);
+      return response.data.user;
+    } catch (error) {
+      toast.error(error.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       return rejectWithValue(error.message);
     }
   }
@@ -82,6 +111,9 @@ export const toggleUsersFavoriteCar = createAsyncThunk(
       const { data } = await axios.post('/favorite', id);
       return data;
     } catch (error) {
+      toast.error(error.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       return rejectWithValue(error.message);
     }
   }
@@ -95,6 +127,45 @@ export const getVerifyEmailUser = createAsyncThunk(
 
       return response.data.verify;
     } catch (error) {
+      toast.error(error.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const resendVerifyUserEmail = createAsyncThunk(
+  'auth/resendVerifyEmail',
+  async (_, thunkAPI) => {
+    try {
+      await axios.get(`/verify`);
+
+      return;
+    } catch (error) {
+      toast.error(error.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const sendEmailAdminPermission = createAsyncThunk(
+  'auth/emailAdminPermission',
+  async (_, thunkAPI) => {
+    try {
+      await axios.get(`/accessed`);
+
+      toast.success('Your request has been successfully sent!', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+
+      return;
+    } catch (error) {
+      toast.error(error.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }

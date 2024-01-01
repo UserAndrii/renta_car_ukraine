@@ -18,7 +18,7 @@ const PasswordInput = ({ setPassword }) => {
         minlength="4"
         maxlength="32"
         required
-        autocomplete="current-password"
+        autoComplete="off"
       />
       {showPassword ? (
         <PasswordlIconVisible onClick={() => setShowPassword(prev => !prev)} />

@@ -57,7 +57,7 @@ const FormComponent = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} autoComplete="false">
+    <Form onSubmit={handleSubmit} autoComplete="off">
       {pathname === '/register' && <TextInput setText={setUserName} />}
       <EmailInput setEmail={setEmail} />
       <PasswordInput setPassword={setPassword} />

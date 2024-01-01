@@ -7,6 +7,7 @@ import {
   userLogOut,
   toggleUsersFavoriteCar,
   getVerifyEmailUser,
+  updateUser,
 } from './operations';
 
 const authSlice = createSlice({
@@ -112,6 +113,10 @@ const authSlice = createSlice({
 
       .addCase(getVerifyEmailUser.fulfilled, (state, action) => {
         state.user.verify = action.payload;
+      })
+
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.user = action.payload;
       });
   },
 });

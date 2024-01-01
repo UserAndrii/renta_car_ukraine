@@ -1,5 +1,12 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsAdmin, selectVerifiedEmail } from 'redux/auth/selectors';
+import {
+  resendVerifyUserEmail,
+  sendEmailAdminPermission,
+  updateUser,
+} from 'redux/auth/operations';
 import {
   Btn,
   Wrapper,
@@ -13,15 +20,64 @@ import {
   BtnWrapper,
 } from './UserForm.styled';
 import Cars from 'images/car-rental.png';
-import { selectVerifiedEmail } from 'redux/auth/selectors';
 
 const UserForm = () => {
-  const { userName, email } = useSelector(state => state.auth.user);
+  const dispatch = useDispatch();
   const verifiedEmail = useSelector(selectVerifiedEmail);
+  const isAdmin = useSelector(selectIsAdmin);
+  const { userName, email } = useSelector(state => state.auth.user);
 
   const [name, setName] = useState(userName);
   const [userEmail, setUserEmail] = useState(email);
   const [disabledInput, setDisabledInput] = useState(true);
+
+  const sendVerifyCode = () => {
+    dispatch(resendVerifyUserEmail()).then(
+      ({ meta: { rejectedWithValue } }) => {
+        if (rejectedWithValue) {
+          toast.error('Oops, something went wrong! Please, try again.', {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        } else {
+          toast.success(
+            'The new verification letter has been sent successfully',
+            {
+              position: toast.POSITION.TOP_RIGHT,
+            }
+          );
+        }
+      }
+    );
+  };
+
+  const userUpdate = () => {
+    setDisabledInput(prev => !prev);
+
+    if (disabledInput) return;
+
+    if (userName === name && email === userEmail) {
+      toast.error('You have not changed any fields.', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
+
+    dispatch(updateUser({ userName: name, email: userEmail })).then(
+      ({ meta: { rejectedWithValue } }) => {
+        if (rejectedWithValue) {
+          toast.error('Oops, something went wrong! Please, try again.', {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+          setDisabledInput(prev => !prev);
+          return;
+        }
+      }
+    );
+
+    toast.success('You have successfully changed your credentials.', {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
 
   return (
     <>
@@ -38,6 +94,7 @@ const UserForm = () => {
               onChange={e => setName(e.target.value)}
               value={name}
               disabled={disabledInput}
+              autoComplete="off"
             />
           </InputWrapper>
 
@@ -50,6 +107,7 @@ const UserForm = () => {
               onChange={e => setUserEmail(e.target.value)}
               value={userEmail}
               disabled={disabledInput}
+              autoComplete="off"
             />
             <Text>
               Your email is {verifiedEmail ? 'verified' : 'not verified'}
@@ -58,11 +116,28 @@ const UserForm = () => {
         </Wrapper>
 
         <BtnWrapper>
-          <Btn type="button" onClick={() => setDisabledInput(prev => !prev)}>
+          <Btn
+            type="button"
+            onClick={() => {
+              userUpdate();
+            }}
+          >
             {disabledInput ? 'Edit information' : 'Save'}
           </Btn>
-          <Btn type="button">Send me the verification code</Btn>
-          <Btn type="button">I want to become an admin</Btn>
+          {!verifiedEmail && (
+            <Btn type="button" onClick={() => sendVerifyCode()}>
+              Send me the verification code
+            </Btn>
+          )}
+
+          {!isAdmin && (
+            <Btn
+              type="button"
+              onClick={() => dispatch(sendEmailAdminPermission())}
+            >
+              I want to become an admin
+            </Btn>
+          )}
         </BtnWrapper>
 
         <Imges src={Cars} alt="other background cars" />

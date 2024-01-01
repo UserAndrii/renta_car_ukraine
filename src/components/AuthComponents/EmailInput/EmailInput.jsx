@@ -7,7 +7,7 @@ const EmailInput = ({ setEmail }) => {
         type="email"
         placeholder="Email"
         onChange={e => setEmail(e.target.value)}
-        autoComplete="false"
+        autoComplete="off"
         required
       />
       <EmailIcon />
