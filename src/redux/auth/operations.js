@@ -39,9 +39,6 @@ export const userLogin = createAsyncThunk(
 
       return data;
     } catch (error) {
-      toast.error(error.message, {
-        position: toast.POSITION.TOP_RIGHT,
-      });
       return rejectWithValue(error.message);
     }
   }
@@ -64,9 +61,6 @@ export const fetchCurrentUser = createAsyncThunk(
 
       return data;
     } catch (error) {
-      toast.error(error.message, {
-        position: toast.POSITION.TOP_RIGHT,
-      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -80,9 +74,6 @@ export const userLogOut = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      toast.error(error.message, {
-        position: toast.POSITION.TOP_RIGHT,
-      });
       return rejectWithValue(error.message);
     }
   }
