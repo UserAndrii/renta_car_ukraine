@@ -99,16 +99,9 @@ const authSlice = createSlice({
         state.error = action.payload;
       })
 
-      .addCase(toggleUsersFavoriteCar.pending, state => {
-        state.isLoading = true;
-      })
       .addCase(toggleUsersFavoriteCar.fulfilled, (state, action) => {
         state.isLoading = false;
         state.favoriteCars = action.payload.favoriteCars;
-      })
-      .addCase(toggleUsersFavoriteCar.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
       })
 
       .addCase(getVerifyEmailUser.fulfilled, (state, action) => {

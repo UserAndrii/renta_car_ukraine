@@ -1,5 +1,4 @@
 import React from 'react';
-// import './FirstDownload.styled.css';
 import { Container } from './FirstDownload.styled';
 
 const FirstDownload = () => {
