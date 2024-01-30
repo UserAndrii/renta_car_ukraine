@@ -6,10 +6,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 import Layout from './Layout';
+import FirstDownload from './FirstDownload/FirstDownload';
 
 import { fetchCurrentUser } from 'redux/auth/operations';
 import {
   selectIsAdmin,
+  selectIsLoading,
   selectIsLogged,
   selectIsRefreshing,
 } from 'redux/auth/selectors';
@@ -46,99 +48,93 @@ function AdminRoutes({ component, navigateTo = '/' }) {
 
 function App() {
   const dispatch = useDispatch();
-  const isRefreshing = useSelector(selectIsRefreshing);
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  return (
-    !isRefreshing && (
-      <>
-        <Routes>
-          <Route exact path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
+  return isLoading ? (
+    <FirstDownload />
+  ) : (
+    <>
+      <Routes>
+        <Route exact path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
 
-            <Route
-              path="/login"
-              element={
-                <RestrictedRoutes
-                  component={<LoginPage />}
-                  navigateTo="/favorites"
-                />
-              }
-            />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoutes
+                component={<LoginPage />}
+                navigateTo="/favorites"
+              />
+            }
+          />
 
-            <Route
-              path="/register"
-              element={
-                <RestrictedRoutes
-                  component={<RegisterPage />}
-                  navigateTo="/favorites"
-                />
-              }
-            />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoutes
+                component={<RegisterPage />}
+                navigateTo="/favorites"
+              />
+            }
+          />
 
-            <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/catalog" element={<CatalogPage />} />
 
-            <Route
-              path="/profile"
-              element={
-                <PrivateRouters
-                  component={<ProfilePage />}
-                  navigateTo="/login"
-                />
-              }
-            />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRouters component={<ProfilePage />} navigateTo="/login" />
+            }
+          />
 
-            <Route
-              path="/favorites"
-              element={
-                <PrivateRouters
-                  component={<FavoriteCarsPage />}
-                  navigateTo="/login"
-                />
-              }
-            />
+          <Route
+            path="/favorites"
+            element={
+              <PrivateRouters
+                component={<FavoriteCarsPage />}
+                navigateTo="/login"
+              />
+            }
+          />
 
-            <Route
-              path="/service"
-              element={
-                <AdminRoutes
-                  component={<ServiceCarPage />}
-                  navigateTo="/catalog"
-                />
-              }
-            />
+          <Route
+            path="/service"
+            element={
+              <AdminRoutes
+                component={<ServiceCarPage />}
+                navigateTo="/catalog"
+              />
+            }
+          />
 
-            <Route
-              path="/service/edit/:carId"
-              element={
-                <AdminRoutes
-                  component={<EditCarPage />}
-                  navigateTo="/catalog"
-                />
-              }
-            />
+          <Route
+            path="/service/edit/:carId"
+            element={
+              <AdminRoutes component={<EditCarPage />} navigateTo="/catalog" />
+            }
+          />
 
-            <Route
-              path="/service/add_new_car"
-              element={
-                <AdminRoutes
-                  component={<AddNewCarPage />}
-                  navigateTo="/catalog"
-                />
-              }
-            />
+          <Route
+            path="/service/add_new_car"
+            element={
+              <AdminRoutes
+                component={<AddNewCarPage />}
+                navigateTo="/catalog"
+              />
+            }
+          />
 
-            <Route path="/verify/:verifyToken" element={<VerifyPage />} />
+          <Route path="/verify/:verifyToken" element={<VerifyPage />} />
 
-            <Route path="*" element={<HomePage />} />
-          </Route>
-        </Routes>
-        <ToastContainer />
-      </>
-    )
+          <Route path="*" element={<HomePage />} />
+        </Route>
+      </Routes>
+      <ToastContainer />
+    </>
   );
 }
 

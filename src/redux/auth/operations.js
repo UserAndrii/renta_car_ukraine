@@ -84,7 +84,7 @@ export const updateUser = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const response = await axios.patch('/update', credentials);
-      console.log(response.data.user);
+
       return response.data.user;
     } catch (error) {
       toast.error(error.message, {

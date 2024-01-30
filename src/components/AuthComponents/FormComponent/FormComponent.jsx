@@ -25,7 +25,6 @@ const FormComponent = () => {
     e.preventDefault();
 
     if (pathname === '/register') {
-      console.log(!userName || !email || !password);
       if (!userName || !email || !password) {
         toast.error(`Please fill in all fields, it's required!`, {
           position: toast.POSITION.TOP_RIGHT,
