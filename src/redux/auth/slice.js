@@ -100,7 +100,6 @@ const authSlice = createSlice({
       })
 
       .addCase(toggleUsersFavoriteCar.fulfilled, (state, action) => {
-        state.isLoading = false;
         state.favoriteCars = action.payload.favoriteCars;
       })
 

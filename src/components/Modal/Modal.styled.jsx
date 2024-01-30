@@ -6,21 +6,15 @@ export const Overlay = styled.div`
   left: 0;
 
   display: flex;
+  align-items: center;
   justify-content: center;
 
   width: 100%;
   height: 100%;
-  padding: 60px 0;
   overflow: auto;
 
   background-color: rgba(18, 20, 23, 0.5);
-  z-index: 999;
-
-  @media screen and (min-width: 1200px) {
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
+  z-index: 100;
 `;
 
 export const ModalWindow = styled.div`
@@ -29,7 +23,7 @@ export const ModalWindow = styled.div`
   background-color: var(--btn-text);
 
   width: 290px;
-  height: fit-content;
+  max-height: calc(100% - 32px);
   padding: 15px;
   overflow: auto;
 
@@ -46,13 +40,7 @@ export const ModalWindow = styled.div`
   @media screen and (min-width: 768px) {
     width: 541px;
     padding: 40px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    max-height: calc(100% - 64px);
   }
 `;
 
