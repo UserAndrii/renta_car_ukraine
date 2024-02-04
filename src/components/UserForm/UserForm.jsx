@@ -79,6 +79,12 @@ const UserForm = () => {
     });
   };
 
+  const cancelFormSubmission = () => {
+    setDisabledInput(prev => !prev);
+    setName(userName);
+    setUserEmail(email);
+  };
+
   return (
     <>
       <Title>Personal data</Title>
@@ -124,6 +130,11 @@ const UserForm = () => {
           >
             {disabledInput ? 'Edit information' : 'Save'}
           </Btn>
+          {!disabledInput && (
+            <Btn type="button" onClick={cancelFormSubmission}>
+              Cancel
+            </Btn>
+          )}
           {!verifiedEmail && (
             <Btn type="button" onClick={() => sendVerifyCode()}>
               Send me the verification code
